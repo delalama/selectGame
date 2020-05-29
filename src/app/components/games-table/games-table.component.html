@@ -1,0 +1,14 @@
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TOP JUEGOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of gameInfo;let indexOfgame=index;" (click)="emitEvent(game)">
+        <th scope="row">{{indexOfgame+1}}</th>
+        <td>{{game.gameName}}</td>
+      </tr>
+    </tbody>
+  </table>

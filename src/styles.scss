@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%)
+ }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .center-flag {
+        width: 25vw;
+    }
+ 
+    .playerStats{
+        font-size: 8vw;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .center-flag{
+        width: 25vw;
+    }
+
+    .playerStats{
+        font-size: 4vw;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .center-flag{
+        width: 14vw;
+    }
+
+    .playerStats{
+        font-size: 3vw;
+    }
+}

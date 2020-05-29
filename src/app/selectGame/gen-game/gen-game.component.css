@@ -1,0 +1,70 @@
+.contents {
+    display: contents;
+  
+  }
+  
+  .flex{
+    display: flex;
+    }
+  
+  .centerFlexContainer {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .flagsContainer {
+    margin-top: 4vh;
+  }
+  
+  .actualFlagName{
+    font-size: 5vw;
+    margin: auto;
+    padding: 5vh;
+    text-align: center;
+    background-color: antiquewhite;
+  }
+  
+  
+  /*RALPH ANIMATION*/
+  
+  .ralph{
+    display: overlay;
+    position: absolute;
+    width: 15vw;
+  }
+  
+  .move-me {
+    color: white;
+    position: relative;
+    margin: 0 0 10px 0;
+  }
+  
+.table{
+  background-color: indianred;
+}
+
+th, td{
+  text-align: center;
+}
+
+.row{
+  margin-right: 0px;
+}
+
+#newGameBtn{
+  color: white;
+  background-color: red;
+}
+
+
+
+
+
+/* ANIMATION CODE */
+.myblock {
+  background-color: green;
+  width: 300px;
+  height: 250px;
+  border-radius: 5px;
+  margin: 5rem;
+}

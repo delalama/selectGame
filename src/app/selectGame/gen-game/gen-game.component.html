@@ -1,0 +1,80 @@
+<div *ngIf="!levelSelected" class="input-group mb-3" id="grid">
+    <!-- <select class="custom-select" #levelOptions (change)="onSelectLevel(levelOptions.value)"> -->
+    <select class="custom-select" #levelOptions (change)="onSelectLevel($event.srcElement.value)">
+      <option selected>ELIGE NIVEL</option>
+      <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="inputGroupSelect02">NIVELES</label>
+    </div>
+  </div>
+  
+  <div *ngIf=levelSelected col-sm-10 col-md-10 center contents>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">{{game.gameName}} LEFT</th>
+          <th scope="col">CORRECT ANSWERS</th>
+          <th scope="col">FAILED ANSWERS</th>
+          <th scope="col" id="newGameBtn" (click)="onBeginAnotherGame()">NEW GAME</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="playerStats">
+          <td class="leftFlags tableTd">{{gameStats.left}}</td>
+          <td class="corrects tableTd">{{gameStats.correctAnswers}}</td>
+          <td class="fails tableTd">{{gameStats.failedAnswers}}</td>
+        </tr>
+        <tr class="playerStats">
+          <td *ngIf="!gameIsFinished" class="leftFlags tableTd actualFlagName" colspan="4">{{gameSelectedFlag.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!gameIsFinished">
+   
+      <div class="move-me ">
+        <img *ngIf="flagWrong" class="img-fluid center-flag ralph" src="assets/ralph.gif">
+      </div>
+<!--       
+      <div>
+        <h1 class="actualFlagName">{{gameSelectedFlag.name}}</h1>
+      </div>
+   -->
+
+      <!--  flags container-->
+      <div class="flagsContainer row center-image">
+        <div class="col-sm-10 col-md-10 center contents">
+          <div *ngFor="let flag of gameFlagsArr; index as i ">
+            <app-object [flag]="flag" (flagSelectedEvent)="onFlagEvent($event)"></app-object>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <div *ngIf="resetGame">
+      <h1>OTRA PARTIDA?</h1>
+      <h1 (click)="onBeginAnotherGame()" >SI</h1>
+      <h1 (click)="onNotMoreGames()" >NO</h1>
+    </div>
+  
+  </div>
+
+
+  <!-- <div class="container p-4">
+    <div class="row">
+      <div class="col text-center">
+        <a (click)="changeState('state2')" class="btn btn-danger">Change To State 2</a>
+      </div>
+      <div class="col text-center">
+        <a (click)="changeState('state1')" class="btn btn-info">Change To State 1</a>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+      <h1>TO STATE ELEMENT</h1>
+    </div>
+  </div>
+
+  <div #myButton class="myblock mx-auto"></div> -->
