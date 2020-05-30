@@ -10,7 +10,7 @@ function createRouter(db) {
 /*FLAGS*/
         router.get('/flags', function (req, res, next) {
           level = req.query.level;
-           query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.flags WHERE dif = '+level+'';
+           query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.flags WHERE dif = '+level+'' ;
                   db.query(
                       query,
                       [owner, 10*(req.params.page || 0)],
@@ -28,7 +28,7 @@ function createRouter(db) {
 /*ACTORS*/
         router.get('/actors', function (req, res, next) {
           level = req.query.level;
-           query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.actors WHERE dif = '+level+'';
+           query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.actors' ;
                   db.query(
                       query,
                       [owner, 10*(req.params.page || 0)],
@@ -45,7 +45,7 @@ function createRouter(db) {
 /*topFootballPlayers*/
 router.get('/topFootballPlayers', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.topFootballPlayers WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.topFootballPlayers';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -62,7 +62,7 @@ router.get('/topFootballPlayers', function (req, res, next) {
 /*topAthletes*/
 router.get('/topAthletes', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.topAthletes WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.topAthletes ';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -80,7 +80,7 @@ router.get('/topAthletes', function (req, res, next) {
 /*mobilesAllTime*/
 router.get('/mobilesAllTime', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.mobilesAllTime WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.mobilesAllTime';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -97,7 +97,7 @@ router.get('/mobilesAllTime', function (req, res, next) {
 /*mobilesAllTime*/
 router.get('/mobilesNokia', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.mobilesNokia WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.mobilesNokia';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -114,7 +114,7 @@ router.get('/mobilesNokia', function (req, res, next) {
 /*appleIphones*/
 router.get('/appleIphones', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.appleIphones WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.appleIphones';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -132,7 +132,7 @@ router.get('/appleIphones', function (req, res, next) {
 /*appleWatches*/
 router.get('/appleWatches', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.appleWatches WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.appleWatches';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],
@@ -150,7 +150,7 @@ router.get('/appleWatches', function (req, res, next) {
 /*sportCars*/
 router.get('/sportCars', function (req, res, next) {
     level = req.query.level;
-     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.sportCars WHERE dif = '+level+' ';
+     query = 'SELECT id, name ,link, dif type FROM sebabeunfollon.sportCars';
             db.query(
                 query,
                 [owner, 10*(req.params.page || 0)],

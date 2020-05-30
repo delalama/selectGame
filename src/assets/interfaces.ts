@@ -2,7 +2,7 @@ export interface Entity {
     id: number;
     name: string;
     link: string;
-    dif: number;
+    type: number;
     selected?: boolean;
 }
 

@@ -11,7 +11,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   templateUrl: './gen-game.component.html',
   styleUrls: ['./gen-game.component.css'],
   animations: [
-    trigger('changeState', [
+    trigger('animated', [
       state('state1', style({
         backgroundColor: 'green',
         transform: 'scale(1)'
@@ -58,13 +58,20 @@ export class GenGameComponent implements OnInit {
   
   /* game functions */
   getEntitiesByLevel(level){
-    this.server.getEntitiesByLevel(this.url, level).subscribe(data => this.entitiesByTypeArray = data );
+    // this.server.getEntitiesByLevel(this.url, level).subscribe(data => this.entitiesByTypeArray = data );
+    this.entitiesByTypeArray = this.server.getEntities(this.url , level);
   }
 
 
   onSelectLevel(level){
     this.getEntitiesByLevel(level)
-    this.beginNewGame();
+
+    setTimeout( () => {
+      console.log(this.entitiesByTypeArray);
+
+      this.beginNewGame();
+
+      }, 400 );
   }
 
   resetStats(){
