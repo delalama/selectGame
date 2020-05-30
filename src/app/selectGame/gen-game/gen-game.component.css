@@ -68,3 +68,11 @@ th, td{
   border-radius: 5px;
   margin: 5rem;
 }
+
+
+.endGameRepeatDiv{
+  font-size: 0.50em;
+  color: white;
+  font-family: initial;
+  text-align: center;
+}

@@ -1,13 +1,15 @@
 
-<div class="">
 
-  <app-top-bar [gameHasBeenSelected]="gameHasBeenSelected"
-               (onResetSelected)="resetTable()"
-  ></app-top-bar>
+    <app-top-bar [gameHasBeenSelected]="gameHasBeenSelected"
+                (onResetSelected)="resetTable()"
+    ></app-top-bar>
 
-  <app-games-table *ngIf="!gameHasBeenSelected"
+
+  <app-games-table *ngIf="!gameHasBeenSelected "
                    [gameInfo] = "gamesNamesParent"
                    (onGameSelected)="tableGameSelected($event)"
+                   expAnimation [eleAnimation]="eleAnimation"
+                   
   ></app-games-table>
 
   <app-gen-game *ngIf="gameHasBeenSelected"
@@ -17,7 +19,6 @@
 
   <app-footer *ngIf="!gameHasBeenSelected"></app-footer>
 
-</div>
 
 <router-outlet></router-outlet>
 

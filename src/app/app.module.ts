@@ -12,6 +12,7 @@ import { GamesTableComponent } from './components/games-table/games-table.compon
 import { GenGameComponent } from './selectGame/gen-game/gen-game.component';
 import { ObjectComponent } from './selectGame/gen-game/object/object.component';
 import { HttpClientModule } from '@angular/common/http';
+import { XpAnimationDirective } from './animations/xp-animation-directive.directive';
 
 // import { routes } from './router/routes';
 
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     GamesTableComponent,
     GenGameComponent,
-    ObjectComponent
+    ObjectComponent,
+    XpAnimationDirective
   ],
   imports: [
     BrowserModule,

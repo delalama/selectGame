@@ -1,34 +1,24 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
 import { Entity , gameStats, levelsArray} from '../../../assets/interfaces';
 import { Observable } from 'rxjs';
 import { Observer } from 'rxjs';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
+import { squash } from '../../animations/squash.animation';
 
 @Component({
   selector: 'app-gen-game',
   templateUrl: './gen-game.component.html',
   styleUrls: ['./gen-game.component.css'],
   animations: [
-    trigger('animated', [
-      state('state1', style({
-        backgroundColor: 'green',
-        transform: 'scale(1)'
-      })),
-      state('state2', style({
-        backgroundColor: 'red',
-        transform: 'scale(1.5)'
-      })),
-      transition('*=>state1', animate('300ms')),
-      transition('*=>state2', animate('2000ms'))
-    ])
   ]
 })
 
-export class GenGameComponent implements OnInit {
+export class GenGameComponent implements OnInit,  AfterViewInit {
 @Input() maxNumberOfItems ;
 @Input() game ;
+
 
 
 // game constants
@@ -45,7 +35,12 @@ export class GenGameComponent implements OnInit {
   resetGame = false;
   previousSelectedFlags = [];
 
-  constructor(private server: GamesServerService) { 
+  // anmimations
+  eleAnimation = 'only_opacity';
+
+
+
+  constructor(private server: GamesServerService, private animationBuilder: AnimationBuilder) { 
   }
 
   ngOnInit(): void {
@@ -56,6 +51,9 @@ export class GenGameComponent implements OnInit {
     // this.levels.push(this.game.);
   }
   
+  ngAfterViewInit() {
+  }
+
   /* game functions */
   getEntitiesByLevel(level){
     // this.server.getEntitiesByLevel(this.url, level).subscribe(data => this.entitiesByTypeArray = data );
@@ -67,11 +65,8 @@ export class GenGameComponent implements OnInit {
     this.getEntitiesByLevel(level)
 
     setTimeout( () => {
-      console.log(this.entitiesByTypeArray);
-
-      this.beginNewGame();
-
-      }, 400 );
+    this.beginNewGame();
+    }, 400 );
   }
 
   resetStats(){
@@ -86,11 +81,15 @@ export class GenGameComponent implements OnInit {
   beginNewGame(){
     this.resetStats();
 
-    setTimeout( () => {
+    // setTimeout( () => {
+    //   this.selectGameFlags();
+    //   this.levelSelected = true;
+    //   this.gameIsFinished = false;
+    //   }, 400 );
+
       this.selectGameFlags();
       this.levelSelected = true;
       this.gameIsFinished = false;
-      }, 400 );
     
   }
 
@@ -161,6 +160,7 @@ export class GenGameComponent implements OnInit {
 
       this.gameFlagsArr.splice(randomNum,1);
       this.gameSelectedFlag.selected = true;
+
     }
 
     for (let flag of this.gameFlagsArr) {
@@ -208,7 +208,7 @@ export class GenGameComponent implements OnInit {
           }else{
             this.flagWrong = true;
           }
-      }, 1000 );
+      }, 500 );
   }
 
 
@@ -260,14 +260,6 @@ export class GenGameComponent implements OnInit {
          return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
   }
 
-  @ViewChild("myButton") myButton: ElementRef;
 
-  currentState;
-
-  toState = 'state1';  
-  
-  changeState(state: any) {
-    this.toState = state;
-  }
 
 }

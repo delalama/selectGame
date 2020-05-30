@@ -9,6 +9,7 @@ export class GamesTableComponent implements OnInit {
 @Input () gameInfo;
 @Output() onGameSelected = new EventEmitter<string>();
 
+
   constructor() { }
 
   ngOnInit(): void {

@@ -43,14 +43,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-
+//TODO db TOP ATHLETES con imágenes pequeñas
 
 
 //TODO hacer query todas entidades y extraer a db.ts
 
 
 //TODO CAMBIO RATÓN al finalizar
- 
 
 
 //TODO FILTRO JUEGOS array.filter...." 
