@@ -13,7 +13,8 @@ export class AppComponent {
   gameSelected: gameInfo;
 
   // animation
-  eleAnimation = 'roll_in_blurred_top';
+  eleAnimation = 'swirl_fwd';
+
 
   gamesNamesParent: gameInfo[] = [
     {gameName:"FLAGS", gameUrl: "flags", levels: 5}, 

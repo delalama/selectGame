@@ -49,18 +49,6 @@ a:hover {
   margin-right: 4px;
 }
 
-footer {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-  justify-content: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
-
 footer a {
   display: flex;
 

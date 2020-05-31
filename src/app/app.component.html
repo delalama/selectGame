@@ -1,23 +1,26 @@
 
-
+  <div expAnimation [eleAnimation]="'slide_in_right'" >
     <app-top-bar [gameHasBeenSelected]="gameHasBeenSelected"
-                (onResetSelected)="resetTable()"
+                 (onResetSelected)="resetTable()"
     ></app-top-bar>
+  </div>
 
-
-  <app-games-table *ngIf="!gameHasBeenSelected "
-                   [gameInfo] = "gamesNamesParent"
-                   (onGameSelected)="tableGameSelected($event)"
-                   expAnimation [eleAnimation]="eleAnimation"
-                   
-  ></app-games-table>
+  <div expAnimation [eleAnimation]="'slide_in_elliptic_left'">
+    <app-games-table *ngIf="!gameHasBeenSelected "
+                     [gameInfo] = "gamesNamesParent"
+                     (onGameSelected)="tableGameSelected($event)"
+    ></app-games-table>
+  </div>
 
   <app-gen-game *ngIf="gameHasBeenSelected"
                 [maxNumberOfItems]="itemsDisplayedOnTurn"
                 [game]="gameSelected"
   ></app-gen-game> 
 
-  <app-footer *ngIf="!gameHasBeenSelected"></app-footer>
+  <div expAnimation [eleAnimation]="eleAnimation" class="footer">
+      <app-footer *ngIf="!gameHasBeenSelected" 
+      ></app-footer> 
+  </div>
 
 
 <router-outlet></router-outlet>

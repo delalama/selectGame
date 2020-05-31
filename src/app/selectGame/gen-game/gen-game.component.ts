@@ -36,9 +36,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   previousSelectedFlags = [];
 
   // anmimations
-  eleAnimation = 'only_opacity';
-
-
+  eleAnimation = 'slide_in_elliptic_left';
 
   constructor(private server: GamesServerService, private animationBuilder: AnimationBuilder) { 
   }
@@ -66,7 +64,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
     setTimeout( () => {
     this.beginNewGame();
-    }, 400 );
+    }, 500 );
   }
 
   resetStats(){
@@ -92,7 +90,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
       this.gameIsFinished = false;
     
   }
-
   
   selectRandomItem(flagsArray): number{
     return Math.floor(Math.random() * flagsArray.length);
@@ -117,7 +114,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   fillGameFlagsArray(arrFrom){
     var randomNums = this.getDifferentRandomNumsFromArray(arrFrom) ;
 
-    for(var i = 0; i<this.maxNumberOfItems; i++ ){
+    for(var i = 0; i < this.maxNumberOfItems; i++ ){
       this.gameFlagsArr[i] = this.entitiesByTypeArray[randomNums[i]] ;
       this.gameFlagsArr[i].selected = false;
     }
@@ -145,7 +142,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
       }
     
     }
-
 
     this.previousSelectedFlags.push(this.gameSelectedFlag);
   }
@@ -184,6 +180,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     this.changeStats(answer);
     this.selectGameFlags();
   }
+
   // isAnswerCorrect naming!
   changeStats(isAnswerCorrect){
     if(isAnswerCorrect){
@@ -208,7 +205,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
           }else{
             this.flagWrong = true;
           }
-      }, 500 );
+      }, 1500 );
   }
 
 
