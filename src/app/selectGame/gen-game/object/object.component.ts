@@ -15,9 +15,6 @@ export class ObjectComponent implements OnInit {
 
   }
 
-  ngOnChanges(): void {
-    console.log("changes");
-  }
 
   onFlagSelect(event){
     this.flagSelectedEvent.emit(event);

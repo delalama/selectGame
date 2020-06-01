@@ -52,10 +52,15 @@ th, td{
 }
 
 #newGameBtn{
-  color: white;
-  background-color: red;
+    cursor: pointer;
+    background-color: #DB3549 !important;        
+    color: white;
+    background-color: red;
 }
 
+#newGameBtn:hover {
+  background-color: #C72333 !important;
+}
 
 
 

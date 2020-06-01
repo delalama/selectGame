@@ -20,6 +20,7 @@
 }
 
  .center-flag {
+  cursor: pointer;
   /* height: 12vh; */
   display: flex;
   margin-left: auto;

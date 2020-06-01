@@ -19,8 +19,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 @Input() maxNumberOfItems ;
 @Input() game ;
 
-
-
 // game constants
   url ;
 // game variables
@@ -52,14 +50,24 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   ngAfterViewInit() {
   }
 
+  resetEntitiesArray(){
+    this.entitiesByTypeArray = [];
+    console.log("entities reset");
+  }
+
   /* game functions */
   getEntitiesByLevel(level){
+    this.resetEntitiesArray();
     // this.server.getEntitiesByLevel(this.url, level).subscribe(data => this.entitiesByTypeArray = data );
     this.entitiesByTypeArray = this.server.getEntities(this.url , level);
+
+    console.log(this.entitiesByTypeArray);
   }
 
 
   onSelectLevel(level){
+    this.resetEntitiesArray();
+
     this.getEntitiesByLevel(level)
 
     setTimeout( () => {
@@ -78,7 +86,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   beginNewGame(){
     this.resetStats();
-
     // setTimeout( () => {
     //   this.selectGameFlags();
     //   this.levelSelected = true;
@@ -168,6 +175,8 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   }
 
   onGameFinished(){
+    this.resetEntitiesArray();
+
     this.gameIsFinished = true;
     this.askResetGame();
   }
@@ -210,7 +219,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
 
   onBeginAnotherGame(){
-
+    this.resetEntitiesArray();
     this.gameIsFinished = true;
     this.levelSelected = false;
     this.resetGame = false;
