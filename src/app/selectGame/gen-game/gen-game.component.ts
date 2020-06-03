@@ -1,11 +1,10 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
-import { Entity , gameStats, levelsArray} from '../../../assets/interfaces';
+import { Entity ,EntityJson, gameStats, levelsArray} from '../../../assets/interfaces';
 import { Observable } from 'rxjs';
 import { Observer } from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
-import { squash } from '../../animations/squash.animation';
 
 @Component({
   selector: 'app-gen-game',
@@ -22,8 +21,9 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 // game constants
   url ;
 // game variables
-  entitiesByTypeArray: Entity[] ;
-  gameFlagsArr: Entity[] = [] ;
+  // entitiesByTypeArray: Entity[] ;
+  entitiesByTypeArray: EntityJson[] ;
+  gameFlagsArr: EntityJson[] = [] ;
   levels = [];
   levelSelected = false;
   flagWrong = false;
@@ -40,16 +40,20 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.url = this.game.gameUrl;
-    for ( var i = 0 ; i < this.game.levels; i++){
-      this.levels.push(levelsArray[i]);
-    }
-    // this.levels.push(this.game.);
+    this.prepareNewGame();
   }
   
   ngAfterViewInit() {
   }
 
+  prepareNewGame(){
+    this.url = this.game.gameUrl;
+    for ( var i = 0 ; i < this.game.levels; i++){
+      this.levels.push(levelsArray[i]);
+    }
+    // this.levels.push(this.game.);
+    this.getFirstEntities(0);
+  }
   resetEntitiesArray(){
     this.entitiesByTypeArray = [];
     console.log("entities reset");
@@ -58,16 +62,13 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   /* game functions */
   getEntitiesByLevel(level){
     this.resetEntitiesArray();
-    // this.server.getEntitiesByLevel(this.url, level).subscribe(data => this.entitiesByTypeArray = data );
-    this.entitiesByTypeArray = this.server.getEntities(this.url , level);
-
-    console.log(this.entitiesByTypeArray);
+    this.entitiesByTypeArray = this.server.getJson(this.url , level);
+    setTimeout( () => {
+      console.log(this.entitiesByTypeArray);
+      }, 500 );
   }
 
-
-  onSelectLevel(level){
-    this.resetEntitiesArray();
-
+  getFirstEntities(level){
     this.getEntitiesByLevel(level)
 
     setTimeout( () => {
@@ -120,10 +121,11 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   fillGameFlagsArray(arrFrom){
     var randomNums = this.getDifferentRandomNumsFromArray(arrFrom) ;
-
+    console.log('fillgameflagsarray')
     for(var i = 0; i < this.maxNumberOfItems; i++ ){
       this.gameFlagsArr[i] = this.entitiesByTypeArray[randomNums[i]] ;
       this.gameFlagsArr[i].selected = false;
+      this.gameFlagsArr[i].src = this.game.picsUrl + this.gameFlagsArr[i].src;
     }
   }
 

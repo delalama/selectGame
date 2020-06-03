@@ -1,15 +1,5 @@
-<div *ngIf="!levelSelected" class="input-group mb-3" id="grid">
-    <!-- <select class="custom-select" #levelOptions (change)="onSelectLevel(levelOptions.value)"> -->
-    <select class="custom-select" #levelOptions (change)="onSelectLevel($event.srcElement.value)">
-      <option selected>ELIGE NIVEL</option>
-      <option *ngFor="let level of levels" [value]="level">{{level}}</option>
-    </select>
-    <div class="input-group-append">
-      <label class="input-group-text" for="inputGroupSelect02">NIVELES</label>
-    </div>
-  </div>
-  
-  <div *ngIf=levelSelected col-sm-10 col-md-10 center contents>
+
+  <div  class="col-sm-10 col-md-10 center contents">
   
     <table class="table">
       <thead>
@@ -22,13 +12,13 @@
       </thead>
       <tbody>
         <tr class="playerStats">
-          <td class="leftFlags tableTd">{{gameStats.left}}</td>
+          <!-- <td class="leftFlags tableTd">{{gameStats.left}}</td>
           <td class="corrects tableTd">{{gameStats.correctAnswers}}</td>
-          <td class="fails tableTd">{{gameStats.failedAnswers}}</td>
+          <td class="fails tableTd">{{gameStats.failedAnswers}}</td> -->
         </tr>
-        <tr class="playerStats">
+        <!-- <tr class="playerStats">
           <td *ngIf="!gameIsFinished" class="leftFlags tableTd actualFlagName" colspan="4" expAnimation [eleAnimation]="'slide_in_elliptic_left'">{{gameSelectedFlag.name}}</td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   
@@ -62,4 +52,8 @@
       <div>SHARE ON COMMUNITIES</div>
     </div>
   
+  </div>
+
+  <div>
+    <mat-progress-bar></mat-progress-bar>
   </div>
