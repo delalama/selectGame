@@ -4,4 +4,4 @@ export const appleIphones: EntityJson[] = [{"popular": 100.0, "src": "iPhone 6.j
 
 export const levelsByDensity = [{"bottom": 0, "top": 1}, {"bottom": 2, "top": 3}, {"bottom": 4, "top": 6}, {"bottom": 7, "top": 7}, {"bottom": 8, "top": 9}, {"bottom": 10, "top": 12}, {"bottom": 13, "top": 13}, {"bottom": 14, "top": 14}, {"bottom": 15, "top": 16}, {"bottom": 17, "top": 20}, {"bottom": 21, "top": 24}, {"bottom": 25, "top": 26}];
 
-export const possibleTrues = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+export const possibleTrues = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25]]

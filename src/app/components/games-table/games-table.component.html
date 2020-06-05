@@ -4,13 +4,13 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">TOP JUEGOS</th>
+        <th class="topGames" scope="col">TOP JUEGOS</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let game of gameInfo;let indexOfgame=index;" (click)="emitEvent(game)" class="gameRow">
+      <tr *ngFor="let game of gameInfo;let indexOfgame=index;" (click)="emitEvent(game)" class="gameRow" >
         <th scope="row">{{indexOfgame+1}}</th>
-        <td>{{game.gameName}}</td>
+        <td style="font-family: lato;">{{game.gameName}}</td>
       </tr>
     </tbody>
   </table>

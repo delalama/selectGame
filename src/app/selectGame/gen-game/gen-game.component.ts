@@ -2,8 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
 import { Entity ,EntityJson, gameStats, levelsArray, gameData} from '../../../assets/interfaces';
-import { Observable } from 'rxjs';
-import { Observer } from 'rxjs';
+import { Observable , Observer} from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { element } from 'protractor';
 
@@ -16,23 +15,26 @@ import { element } from 'protractor';
 })
 
 export class GenGameComponent implements OnInit,  AfterViewInit {
-@Input() maxNumberOfItems ;
 @Input() game ;
  
 // game constants
+  maxNumberOfItems = 12 ;
   url ;
   gameName ;
   gameData: gameData;
 // game variables
+  level;
   // entitiesByTypeArray: Entity[] ;
   entitiesByTypeArray: EntityJson[] ;
   gameEntitiesArr: EntityJson[];
-  levels = [];
-  levelSelected = false;
   flagWrong = false;
   gameIsFinished = false;
   gameSelectedEntityName ; 
-  gameStats: gameStats ;
+  gameStats: gameStats = {
+    correctAnswers: 0,
+    failedAnswers: 0,
+    left: 20
+  };
   resetGame = false;
   previousSelectedFlags = [];
 
@@ -44,10 +46,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   constructor(private server: GamesServerService, private animationBuilder: AnimationBuilder) { 
   }
 
-  //TODO todelete
-  async resolveResponse(level): Promise<EntityJson>{
-     return await this.server.getTrueByLevel(this.gameName, level)
-  }
 
   ngOnInit(): void {
     this.prepareNewGame();
@@ -57,9 +55,13 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   }
 
   prepareNewGame(){
+    this.level = -1 ; 
     this.url = this.game.gameUrl;
     this.gameName = this.game.gameName;
-    this.getFirstEntities(0);
+    this.selectGameFlags();
+    this.gameStats.correctAnswers = 0 ; 
+    this.gameStats.failedAnswers = 0 ; 
+    this.gameStats.left = 20 ; 
   }
 
   resetEntitiesArray(){
@@ -69,7 +71,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
  
   /* game functions */
   getEntitiesByLevel(level){
-    
     this.gameData = this.server.getEntities(this.gameName , level);
     this.gameEntitiesArr = this.gameData.entities;
     this.gameSelectedEntityName = this.gameData.selected.name;
@@ -80,23 +81,19 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
       element.src = this.path + this.url + src
     })
 
-    console.log(this.gameEntitiesArr )
     // this.server.getTrueByLevel(this.gameName , level).then(value =>{
     //     this.gameEntitiesArr = value;
     // });
 
-    console.log(this.gameEntitiesArr);
     setTimeout( () => {
           console.log(this.entitiesByTypeArray);
     }, 1500 );
   }
 
   getFirstEntities(level){
-    this.getEntitiesByLevel(level)
+    // this.getEntitiesByLevel(level)
 
-    setTimeout( () => {
      this.beginNewGame();
-    }, 1000 );
   }
 
   resetStats(){
@@ -111,7 +108,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   beginNewGame(){
     this.resetStats();
     this.selectGameFlags();
-    this.levelSelected = true;
     this.gameIsFinished = false;
     
   }
@@ -138,14 +134,23 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
 
   selectGameFlags(){
-    if(!this.gameIsFinished){
-      for (let entity of this.gameEntitiesArr) {
-        this.getBase64ImageFromURL(entity.src).subscribe(base64data => {    
-         entity.src = ('data:image/jpg;base64,' + base64data);
-        });
-    }
-  }
+    console.log('quedan: ', this.gameStats.left)
+    this.level += 1; 
 
+    if(!this.gameIsFinished){
+      this.getEntitiesByLevel(this.level);
+
+      setTimeout( () => {
+        if(this.flagWrong){
+
+          for (let entity of this.gameEntitiesArr) {
+            this.getBase64ImageFromURL(entity.src).subscribe(base64data => {    
+             entity.src = ('data:image/jpg;base64,' + base64data);
+            });
+          }
+        }
+        }, 1500 );
+    }
   }
 
   onGameFinished(){
@@ -176,7 +181,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     }
     this.gameStats.left--;
 
-    if(this.gameStats.left == 0){
+    if(this.gameStats.left == 1){
       this.onGameFinished();
     }
   }
@@ -192,11 +197,9 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
       }, 1500 );
   }
 
-
   onBeginAnotherGame(){
     this.resetEntitiesArray();
     this.gameIsFinished = true;
-    this.levelSelected = false;
     this.resetGame = false;
     this.previousSelectedFlags = [];
   }

@@ -1,3 +1,15 @@
 .gameRow{
     cursor: pointer;
+
+}
+
+.topGames{
+    font-family: initial !important;
+}
+
+.lato {
+    @font-face {
+        font-family: lato;
+        src: url(src/assets/fonts/Montserrat/Montserrat-Black.ttf) format("opentype");
+      }
 }

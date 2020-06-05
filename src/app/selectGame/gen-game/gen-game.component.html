@@ -4,18 +4,13 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">{{game.gameName}} LEFT</th>
-          <th scope="col">CORRECT ANSWERS</th>
-          <th scope="col">FAILED ANSWERS</th>
-          <th scope="col" id="newGameBtn" (click)="onBeginAnotherGame()">NEW GAME</th>
+          <th scope="col">PUNTOS</th>
+          <th scope="col">10000</th>
+          <!-- //TODO hacerlo como el reset button en la main barDISPARAR EVENTO CON NOMBRE DEL JUEGO Y VOLVER A CARGAR TABLA INICIO -->
+          <!-- <th scope="col" id="newGameBtn" (click)="onBeginAnotherGame()">NEW GAME</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr class="playerStats">
-          <!-- <td class="leftFlags tableTd">{{gameStats.left}}</td>
-          <td class="corrects tableTd">{{gameStats.correctAnswers}}</td>
-          <td class="fails tableTd">{{gameStats.failedAnswers}}</td> -->
-        </tr>
       </tbody>
     </table>
   
@@ -25,9 +20,7 @@
         <img *ngIf="flagWrong" class="img-fluid center-flag ralph" src="assets/ralph.gif">
       </div> -->
 
-      <div class="actualFlagName fancy-border " expAnimation [eleAnimation]="'bounce_in_left'">
-        <h1> {{gameSelectedEntityName}}</h1>
-      </div>
+      
 
       <!--  flags container-->
       <div class="flagsContainer row center-image">
@@ -48,6 +41,10 @@
       <div>SHARE ON COMMUNITIES</div>
     </div>
   
+  </div>
+
+  <div class="actualFlagName " expAnimation [eleAnimation]="'bounce_in_left'">
+    <h1> {{gameSelectedEntityName}}</h1>
   </div>
 <!-- 
   <div>

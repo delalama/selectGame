@@ -18,25 +18,25 @@
     margin-top: 3vh;
   }
   
-  .actualFlagName{
-    font-size: 8vw;
-    margin-bottom: 3vh;
-    color: white;
-    text-align: center;
+  .actualFlagName {
+    display: flex;
     align-items: center;
+    line-height: 20px;
     justify-content: center;
     position: fixed;
-    bottom: 0;
+    left: 0;
+    bottom: 3vw;
     width: 100%;
+    color: white;
+    text-align: center;
     z-index: 5;
   }
+
   .actualFlagName h1{
-    font-size: inherit;
+    font-family: 'lato', 'arial', sans-serif;
   }
   
-  
   /*RALPH ANIMATION*/
-  
   .ralph{
     display: overlay;
     position: absolute;
@@ -51,6 +51,7 @@
   
 .table{
   background-color: indianred;
+  font-family: 'lato', 'arial', sans-serif;
 }
 
 th, td{

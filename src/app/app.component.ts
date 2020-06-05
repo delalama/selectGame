@@ -11,7 +11,6 @@ export class AppComponent {
 
   title: string = 'selectGames';
   gameHasBeenSelected: boolean;
-  itemsDisplayedOnTurn: number = 12;
   gameSelected: gameInfo;
 
   // animation

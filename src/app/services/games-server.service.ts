@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { EntityJson , gameData} from '../../assets/interfaces';
 import { flags, actors, topFootballPlayers, topAthletes, mobilesAllTime, mobilesNokia, appleWatches, sportCars } from '../../app/db/db';
 import { appleIphones, levelsByDensity, possibleTrues } from 'src/assets/pics/AppleIphones/data1';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +77,15 @@ export class GamesServerService {
     }
   }
 
+
+  getEntitiesAsync(game,level) {
+    return Observable.create((observer: Observer<string>) => {
+      switch(game){
+        case 'APPLE IPHONES' : return this.selectElements( appleIphones, level )
+      }
+    });
+  }
+ 
 
 
 }
