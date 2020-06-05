@@ -8,33 +8,81 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 500) {
+    
     .center-flag {
-        width: 25vw;
+        width: 33vw;
     }
  
     .playerStats{
         font-size: 8vw;
     }
+
+    .actualFlagName{
+        font-size: 15vw;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    
+    .center-flag {
+        width: 31.9vw;
+    }
+ 
+    .playerStats{
+        font-size: 8vw;
+    }
+
+    .actualFlagName{
+        font-size: 15vw;
+    }
 }
 
 @media only screen and (min-width: 600px) {
     .center-flag{
-        width: 25vw;
+        width: 31.7vw;
     }
 
     .playerStats{
         font-size: 4vw;
     }
+
+    h1 .actualFlagName{
+        font-size: 15vw;
+    }
 }
 
 @media only screen and (min-width: 900px) {
     .center-flag{
-        width: 14vw;
+        width: 19.5vw;
     }
 
     .playerStats{
         font-size: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .center-flag{
+        width: 19.8vw;;
+    }
+
+    .playerStats{
+        font-size: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1193px) {
+    .center-flag{
+        width: 16.5vw;
+    }
+
+    .playerStats{
+        font-size: 3vw;
+    }
+
+    .actualFlagName{
+        font-size: 15vw;
+        bottom: 10% !important;
     }
 }

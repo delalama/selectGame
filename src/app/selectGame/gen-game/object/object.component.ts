@@ -9,6 +9,8 @@ export class ObjectComponent implements OnInit {
   @Input() flag;
   @Output() flagSelectedEvent = new EventEmitter<boolean>();
 
+  path = 'assets/pics/AppleIphones/'
+
   constructor() { }
 
   ngOnInit(): void {

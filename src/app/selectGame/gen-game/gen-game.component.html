@@ -1,5 +1,5 @@
 
-  <div  class="col-sm-10 col-md-10 center contents">
+  <div  class="col-sm-12 col-md-12 center contents">
   
     <table class="table">
       <thead>
@@ -16,9 +16,6 @@
           <td class="corrects tableTd">{{gameStats.correctAnswers}}</td>
           <td class="fails tableTd">{{gameStats.failedAnswers}}</td> -->
         </tr>
-        <!-- <tr class="playerStats">
-          <td *ngIf="!gameIsFinished" class="leftFlags tableTd actualFlagName" colspan="4" expAnimation [eleAnimation]="'slide_in_elliptic_left'">{{gameSelectedFlag.name}}</td>
-        </tr> -->
       </tbody>
     </table>
   
@@ -27,16 +24,15 @@
       <!-- <div class="move-me ">
         <img *ngIf="flagWrong" class="img-fluid center-flag ralph" src="assets/ralph.gif">
       </div> -->
-<!--       
-      <div>
-        <h1 class="actualFlagName">{{gameSelectedFlag.name}}</h1>
+
+      <div class="actualFlagName fancy-border " expAnimation [eleAnimation]="'bounce_in_left'">
+        <h1> {{gameSelectedEntityName}}</h1>
       </div>
-   -->
 
       <!--  flags container-->
       <div class="flagsContainer row center-image">
-        <div class="col-sm-10 col-md-10 center contents" >
-          <div *ngFor="let flag of gameFlagsArr; index as i " expAnimation [eleAnimation]="'roll_in_top'">
+        <div class="col-sm-12 col-md-12 center contents" >
+          <div *ngFor="let flag of gameEntitiesArr; index as i " expAnimation [eleAnimation]="'roll_in_top'">
             <app-object [flag]="flag" (flagSelectedEvent)="onFlagEvent($event)" ></app-object>
           </div>
         </div>
@@ -53,7 +49,7 @@
     </div>
   
   </div>
-
+<!-- 
   <div>
     <mat-progress-bar></mat-progress-bar>
-  </div>
+  </div> -->

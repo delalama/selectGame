@@ -13,6 +13,7 @@ import { GenGameComponent } from './selectGame/gen-game/gen-game.component';
 import { ObjectComponent } from './selectGame/gen-game/object/object.component';
 import { HttpClientModule } from '@angular/common/http';
 import { XpAnimationDirective } from './animations/xp-animation-directive.directive';
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 
 // import { routes } from './router/routes';
 
@@ -24,7 +25,7 @@ import { XpAnimationDirective } from './animations/xp-animation-directive.direct
     GamesTableComponent,
     GenGameComponent,
     ObjectComponent,
-    XpAnimationDirective
+    XpAnimationDirective,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { XpAnimationDirective } from './animations/xp-animation-directive.direct
     BrowserAnimationsModule,
     MatDividerModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
 
     
   ],

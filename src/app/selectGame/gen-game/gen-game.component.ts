@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
-import { Entity ,EntityJson, gameStats, levelsArray} from '../../../assets/interfaces';
+import { Entity ,EntityJson, gameStats, levelsArray, gameData} from '../../../assets/interfaces';
 import { Observable } from 'rxjs';
 import { Observer } from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-gen-game',
@@ -17,18 +18,20 @@ import { trigger, state, style, transition, animate, AnimationBuilder, Animation
 export class GenGameComponent implements OnInit,  AfterViewInit {
 @Input() maxNumberOfItems ;
 @Input() game ;
-
+ 
 // game constants
   url ;
+  gameName ;
+  gameData: gameData;
 // game variables
   // entitiesByTypeArray: Entity[] ;
   entitiesByTypeArray: EntityJson[] ;
-  gameFlagsArr: EntityJson[] = [] ;
+  gameEntitiesArr: EntityJson[];
   levels = [];
   levelSelected = false;
   flagWrong = false;
   gameIsFinished = false;
-  gameSelectedFlag ; 
+  gameSelectedEntityName ; 
   gameStats: gameStats ;
   resetGame = false;
   previousSelectedFlags = [];
@@ -36,7 +39,14 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   // anmimations
   eleAnimation = 'slide_in_elliptic_left';
 
+  path = 'assets/pics/'
+
   constructor(private server: GamesServerService, private animationBuilder: AnimationBuilder) { 
+  }
+
+  //TODO todelete
+  async resolveResponse(level): Promise<EntityJson>{
+     return await this.server.getTrueByLevel(this.gameName, level)
   }
 
   ngOnInit(): void {
@@ -48,32 +58,45 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   prepareNewGame(){
     this.url = this.game.gameUrl;
-    for ( var i = 0 ; i < this.game.levels; i++){
-      this.levels.push(levelsArray[i]);
-    }
-    // this.levels.push(this.game.);
+    this.gameName = this.game.gameName;
     this.getFirstEntities(0);
   }
+
   resetEntitiesArray(){
-    this.entitiesByTypeArray = [];
-    console.log("entities reset");
+    this.gameEntitiesArr = [];
   }
 
+ 
   /* game functions */
   getEntitiesByLevel(level){
-    this.resetEntitiesArray();
-    this.entitiesByTypeArray = this.server.getJson(this.url , level);
+    
+    this.gameData = this.server.getEntities(this.gameName , level);
+    this.gameEntitiesArr = this.gameData.entities;
+    this.gameSelectedEntityName = this.gameData.selected.name;
+
+    let src;
+    this.gameEntitiesArr.forEach(element =>{
+      src = element.src;
+      element.src = this.path + this.url + src
+    })
+
+    console.log(this.gameEntitiesArr )
+    // this.server.getTrueByLevel(this.gameName , level).then(value =>{
+    //     this.gameEntitiesArr = value;
+    // });
+
+    console.log(this.gameEntitiesArr);
     setTimeout( () => {
-      console.log(this.entitiesByTypeArray);
-      }, 500 );
+          console.log(this.entitiesByTypeArray);
+    }, 1500 );
   }
 
   getFirstEntities(level){
     this.getEntitiesByLevel(level)
 
     setTimeout( () => {
-    this.beginNewGame();
-    }, 500 );
+     this.beginNewGame();
+    }, 1000 );
   }
 
   resetStats(){
@@ -87,15 +110,9 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   beginNewGame(){
     this.resetStats();
-    // setTimeout( () => {
-    //   this.selectGameFlags();
-    //   this.levelSelected = true;
-    //   this.gameIsFinished = false;
-    //   }, 400 );
-
-      this.selectGameFlags();
-      this.levelSelected = true;
-      this.gameIsFinished = false;
+    this.selectGameFlags();
+    this.levelSelected = true;
+    this.gameIsFinished = false;
     
   }
   
@@ -119,60 +136,15 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     return randomNumsArr;
   }
 
-  fillGameFlagsArray(arrFrom){
-    var randomNums = this.getDifferentRandomNumsFromArray(arrFrom) ;
-    console.log('fillgameflagsarray')
-    for(var i = 0; i < this.maxNumberOfItems; i++ ){
-      this.gameFlagsArr[i] = this.entitiesByTypeArray[randomNums[i]] ;
-      this.gameFlagsArr[i].selected = false;
-      this.gameFlagsArr[i].src = this.game.picsUrl + this.gameFlagsArr[i].src;
-    }
-  }
-
-  selectedActualRoundFlag(){
-    var selectedFlagHasBeenSelectedBefore = true;
-    
-    if(this.previousSelectedFlags.length==0){
-      this.gameSelectedFlag = this.gameFlagsArr[Math.floor(Math.random() * this.gameFlagsArr.length)];
-      selectedFlagHasBeenSelectedBefore = false;  
-    }
-
-    while(selectedFlagHasBeenSelectedBefore){
-      this.gameSelectedFlag = this.gameFlagsArr[Math.floor(Math.random() * this.gameFlagsArr.length)];
-
-
-      for (var i = 0 ; i < this.previousSelectedFlags.length; i++) {
-        if (this.gameSelectedFlag.id == this.previousSelectedFlags[i].id ){
-          selectedFlagHasBeenSelectedBefore = true;
-          i = this.previousSelectedFlags.length;
-        } else{
-          selectedFlagHasBeenSelectedBefore = false;
-        }
-      }
-    
-    }
-
-    this.previousSelectedFlags.push(this.gameSelectedFlag);
-  }
 
   selectGameFlags(){
     if(!this.gameIsFinished){
-      var randomNum = this.selectRandomItem(this.entitiesByTypeArray);
-      //fill gameFlags with random flagsByTypeArray items
-      this.fillGameFlagsArray(this.entitiesByTypeArray);
-
-      this.selectedActualRoundFlag();
-
-      this.gameFlagsArr.splice(randomNum,1);
-      this.gameSelectedFlag.selected = true;
-
+      for (let entity of this.gameEntitiesArr) {
+        this.getBase64ImageFromURL(entity.src).subscribe(base64data => {    
+         entity.src = ('data:image/jpg;base64,' + base64data);
+        });
     }
-
-    for (let flag of this.gameFlagsArr) {
-      this.getBase64ImageFromURL(flag.link).subscribe(base64data => {    
-       flag.link = ('data:image/jpg;base64,' + base64data);
-      });
-    }
+  }
 
   }
 
@@ -190,6 +162,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   onFlagEvent(answer){
     this.changeStats(answer);
     this.selectGameFlags();
+    console.log("flag selected");
   }
 
   // isAnswerCorrect naming!
