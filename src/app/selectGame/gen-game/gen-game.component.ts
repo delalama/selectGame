@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
-import { Entity ,EntityJson, gameStats, levelsArray, gameData} from '../../../assets/interfaces';
+import { Entity ,EntityDescription, gameStats, gameData} from '../../../assets/interfaces';
 import { Observable , Observer} from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { element } from 'protractor';
@@ -14,6 +14,7 @@ import { element } from 'protractor';
   ]
 })
 
+
 export class GenGameComponent implements OnInit,  AfterViewInit {
 @Input() game ;
  
@@ -25,8 +26,8 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 // game variables
   level;
   // entitiesByTypeArray: Entity[] ;
-  entitiesByTypeArray: EntityJson[] ;
-  gameEntitiesArr: EntityJson[];
+  entitiesByTypeArray: EntityDescription[] ;
+  gameEntitiesArr: EntityDescription[];
   flagWrong = false;
   gameIsFinished = false;
   gameSelectedEntityName ; 
@@ -73,7 +74,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   getEntitiesByLevel(level){
     this.gameData = this.server.getEntities(this.gameName , level);
     this.gameEntitiesArr = this.gameData.entities;
-    this.gameSelectedEntityName = this.gameData.selected.name;
+    this.gameSelectedEntityName = this.replaceSlashed(this.gameData.selected.name);
 
     let src;
     this.gameEntitiesArr.forEach(element =>{
@@ -244,6 +245,8 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
          return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
   }
 
-
+  replaceSlashed(str){
+    return str.replace('_', ' ');
+  }
 
 }

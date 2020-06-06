@@ -6,7 +6,7 @@ export interface Entity {
     selected?: boolean;
 }
 
-export interface EntityJson {
+export interface EntityDescription {
     popular: number;
     src: string;
     name: string;
@@ -14,9 +14,10 @@ export interface EntityJson {
     link?: string;
 }
 
+
 export interface gameData {
-    entities: EntityJson[];
-    selected: EntityJson;
+    entities: EntityDescription[];
+    selected: EntityDescription;
 }
 
 export interface gameInfo {
@@ -25,14 +26,6 @@ export interface gameInfo {
     levels?: number;
 }
 
-export enum levelsEnum {
-    easy = 'FÁCIL',
-    medium = 'INTERMEDIO',
-    hard = 'DIFÍCIL',
-    very_hard = 'MUY_DIFÍCIL',
-    impossible = 'IMPOSIBLE'
-}
-export const levelsArray = Object.values(levelsEnum);
 
 export interface gameStats {
     left : number;
@@ -40,20 +33,16 @@ export interface gameStats {
     failedAnswers: number;
    }
 
-
-export interface gameStats {
-    left : number;
-    correctAnswers: number;
-    failedAnswers: number;
-}
-
-export interface Range {
-    bottom: number;
-    top: number;
-}
    
 export interface LevelInterval {
     bottom: number;
     top: number;
+}
+   
+   
+export interface GameBack {
+    mainArray: EntityDescription[];
+    possibleTrues: LevelInterval[];
+    levelsByDensity: number[][];
 }
    

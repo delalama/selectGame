@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { EntityJson , gameData} from '../../assets/interfaces';
+import { EntityDescription , gameData, GameBack} from '../../assets/interfaces';
 import { flags, actors, topFootballPlayers, topAthletes, mobilesAllTime, mobilesNokia, appleWatches, sportCars } from '../../app/db/db';
-import { appleIphones, levelsByDensity, possibleTrues } from 'src/assets/pics/AppleIphones/data1';
 import { Observable, Observer } from 'rxjs';
+import { AppleIphonesData } from 'src/assets/pics/AppleIphones/data';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class GamesServerService {
     return items.filter((_, index) => index >= startIndex && index <= endIndex)
   }
 
-  getTwelveElementsFromArray(array: EntityJson[], previousSelected: number){
+  getTwelveElementsFromArray(array: EntityDescription[], previousSelected: number){
     let randomNum: number;
     let twelveRandomItems =  [];
     for ( let i = 0 ; i < 12 ; i++){
@@ -36,55 +36,50 @@ export class GamesServerService {
   }
   
 
-  selectElements( items: EntityJson[] , level ) {
+  selectElements( items: GameBack , level ) {
     let arrayToReturn : gameData = {
       entities: [],
       selected: {popular:0,selected: false,src:'',name:''}
     };
 
-    let possibilitesByLevel = possibleTrues[level]
+    let possibilitesByLevel = items.possibleTrues[level];
 
-    let minPossibilty = possibilitesByLevel[0]
-    let maxPossibilty = Array(possibilitesByLevel).length
+    let minPossibilty = items.possibleTrues[level]['bottom'] ;
+    let maxPossibilty = Array(possibilitesByLevel).length;
      
-    let randomTrue = Math.floor(Math.random() * (maxPossibilty + 0.99) ) + minPossibilty
+    let randomTrue = Math.floor(Math.random() * (maxPossibilty + 0.99) ) + minPossibilty;
     
-    let selectedElement = items[randomTrue]
-    selectedElement.selected = true
+    let selectedElement = Object.assign({},items.mainArray[randomTrue]);
+    selectedElement.selected = true;
 
-    arrayToReturn.entities = this.getTwelveElementsFromArray(items, randomTrue) 
+    arrayToReturn.entities = this.getTwelveElementsFromArray(items.mainArray, randomTrue); 
     
-    let randomPositionToPushTrue = Math.floor(Math.random() * 12 ) 
+    let randomPositionToPushTrue = Math.floor(Math.random() * 12 );
 
-    arrayToReturn.entities.splice( randomPositionToPushTrue, 1 , selectedElement )
-    arrayToReturn.selected = selectedElement
+    arrayToReturn.entities.splice( randomPositionToPushTrue, 1 , selectedElement );
+    arrayToReturn.selected = selectedElement;
 
     return arrayToReturn
   }
 
-  getTrueByLevel(game, level): Promise<EntityJson> {
-    return new Promise(resolve => {
-        switch(game){
-          case 'APPLE IPHONES' : return this.selectElements( appleIphones, level)
-        }
-    });
-  }
+
 
 
   getEntities(game,level): gameData {
     switch(game){
-      case 'APPLE IPHONES' : return this.selectElements( appleIphones, level )
+      case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData, level )
     }
   }
 
 
-  getEntitiesAsync(game,level) {
-    return Observable.create((observer: Observer<string>) => {
-      switch(game){
-        case 'APPLE IPHONES' : return this.selectElements( appleIphones, level )
-      }
-    });
-  }
+  //  TODO JOAN RXJS!
+  // getEntitiesAsync(game,level) {
+  //   return Observable.create((observer: Observer<string>) => {
+  //     switch(game){
+  //       case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData.mainArray, level )
+  //     }
+  //   });
+  // }
  
 
 
