@@ -46,9 +46,10 @@ export class GamesServerService {
     let possibilitesByLevel = items.possibleTrues[level];
 
     let minPossibilty = items.possibleTrues[level][0] ;
-    let maxPossibilty = Array(possibilitesByLevel).length;
+    // let maxPossibilty = Array(possibilitesByLevel).length;
+    let maxPossibilty = possibilitesByLevel.length;
      
-    let randomTrue = Math.floor(Math.random() * (maxPossibilty + 0.99) ) + minPossibilty;
+    let randomTrue = Math.floor(Math.random() * (maxPossibilty) ) + minPossibilty;
     
     let selectedElement = Object.assign({},items.mainArray[randomTrue]);
     selectedElement.selected = true;
