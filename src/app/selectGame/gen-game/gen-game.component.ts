@@ -82,10 +82,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
       element.src = this.path + this.url + src
     })
 
-    // this.server.getTrueByLevel(this.gameName , level).then(value =>{
-    //     this.gameEntitiesArr = value;
-    // });
-
     setTimeout( () => {
           console.log(this.entitiesByTypeArray);
     }, 1500 );
@@ -181,7 +177,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
         }, 700 );
       
     }else{
-      //TODO BREAK ACTUAL GAME
+      this.onGameFinished();
       this.gameStats.failedAnswers++;
       this.toogleFlagWrong();
     }
