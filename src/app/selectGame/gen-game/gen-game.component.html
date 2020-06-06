@@ -5,7 +5,9 @@
       <thead>
         <tr>
           <th scope="col">PUNTOS</th>
-          <th scope="col">10000</th>
+          <th scope="col">1</th>
+          <th scope="col" class="message"></th>
+          <th scope="col"></th>
           <!-- //TODO hacerlo como el reset button en la main barDISPARAR EVENTO CON NOMBRE DEL JUEGO Y VOLVER A CARGAR TABLA INICIO -->
           <!-- <th scope="col" id="newGameBtn" (click)="onBeginAnotherGame()">NEW GAME</th> -->
         </tr>
@@ -23,9 +25,9 @@
       
 
       <!--  flags container-->
-      <div class="flagsContainer row center-image">
-        <div class="col-sm-12 col-md-12 center contents" >
-          <div *ngFor="let entity of gameEntitiesArr; index as i " expAnimation [eleAnimation]="'roll_in_top'">
+      <div class="flagsContainer row center-image"  expAnimation [eleAnimation]="'rotate_animation'">
+        <div class="col-sm-12 col-md-12 center contents"  >
+          <div *ngFor="let entity of gameEntitiesArr; index as i " >
             <app-object [entity]="entity" (entitySelectedEvent)="onFlagEvent($event)" ></app-object>
           </div>
         </div>

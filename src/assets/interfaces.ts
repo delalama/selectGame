@@ -27,6 +27,7 @@ export interface gameInfo {
 
 
 export interface gameStats {
+    points : number;
     left : number;
     correctAnswers: number;
     failedAnswers: number;

@@ -7,6 +7,7 @@ import { Observable, Observer } from 'rxjs';
 import { AppleIphonesData } from 'src/assets/pics/AppleIphones/data';
 import { TopFootballPlayersData1 } from 'src/assets/pics/TopFootballPlayers1/data';
 import { VideoGamesScreenShots1Data } from 'src/assets/pics/VideoGamesScreenShots1/data';
+import { computeMsgId } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +25,17 @@ export class GamesServerService {
   getTwelveElementsFromArray(array: EntityDescription[], previousSelected: number){
     let randomNum: number;
     let twelveRandomItems =  [];
+
+    // we dont want to pass 2 "same options" per game
+    let arraySelectedNumsPerTurn = []
+    
     for ( let i = 0 ; i < 12 ; i++){
       randomNum = Math.floor(Math.random() * array.length-0.001 );
-      if ( randomNum == previousSelected ){
-          i = i-1; 
+      if ( randomNum == previousSelected || arraySelectedNumsPerTurn.includes(randomNum)){
+          i = i-1;
+          console.log('number preselected or same as selected') 
       }else{
+        arraySelectedNumsPerTurn.push(randomNum)
         // no podemos pasar referencias a las entidades, sino crear nuevas
         let entity =  Object.assign({},array[randomNum]); 
         twelveRandomItems.push(entity); 
@@ -43,7 +50,7 @@ export class GamesServerService {
       entities: [],
       selected: {popular:0,selected: false,src:'',name:''}
     };
-
+    
     let possibilitesByLevel = items.possibleTrues[level];
 
     let minPossibilty = items.possibleTrues[level][0] ;
@@ -64,8 +71,6 @@ export class GamesServerService {
 
     return arrayToReturn
   }
-
-
 
 
   getEntities(game,level): gameData {

@@ -168,9 +168,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     if(isAnswerCorrect){
       this.gameStats.correctAnswers++;
       //TODO MAKE ANIMATION
-      setTimeout( () => {
-        this.selectGameFlags();
-        }, 700 );
+      this.selectGameFlags();
       
     }else{
       this.onGameFinished();
