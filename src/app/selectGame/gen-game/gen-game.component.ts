@@ -59,6 +59,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     this.level = -1 ; 
     this.url = this.game.gameUrl;
     this.gameName = this.game.gameName;
+    this.gameIsFinished = false;
     this.selectGameFlags();
     this.gameStats.correctAnswers = 0 ; 
     this.gameStats.failedAnswers = 0 ; 
@@ -104,8 +105,8 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   beginNewGame(){
     this.resetStats();
-    this.selectGameFlags();
     this.gameIsFinished = false;
+    this.selectGameFlags();
     
   }
   
@@ -137,16 +138,11 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     if(!this.gameIsFinished){
       this.getEntitiesByLevel(this.level);
 
-      setTimeout( () => {
-        if(this.flagWrong){
-
-          for (let entity of this.gameEntitiesArr) {
-            this.getBase64ImageFromURL(entity.src).subscribe(base64data => {    
-             entity.src = ('data:image/jpg;base64,' + base64data);
-            });
-          }
-        }
-        }, 1500 );
+      for (let entity of this.gameEntitiesArr) {
+        this.getBase64ImageFromURL(entity.src).subscribe(base64data => {    
+         entity.src = ('data:image/jpg;base64,' + base64data);
+        });
+      }
     }
   }
 
@@ -204,6 +200,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     this.gameIsFinished = true;
     this.resetGame = false;
     this.previousSelectedFlags = [];
+    this.prepareNewGame()
   }
 
   onNotMoreGames(){
