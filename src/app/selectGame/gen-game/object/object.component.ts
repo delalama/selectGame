@@ -8,13 +8,12 @@ import { Component, OnInit , EventEmitter, Output,Input, OnChanges, ViewChild, E
 export class ObjectComponent implements OnInit {
   @Input() entity;
   @Output() entitySelectedEvent = new EventEmitter<boolean>();
-
+  
   path = 'assets/pics/AppleIphones/'
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.entity)
   }
 
   onFlagSelect(event){

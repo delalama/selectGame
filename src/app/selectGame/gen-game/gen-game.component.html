@@ -25,8 +25,8 @@
       <!--  flags container-->
       <div class="flagsContainer row center-image">
         <div class="col-sm-12 col-md-12 center contents" >
-          <div *ngFor="let flag of gameEntitiesArr; index as i " expAnimation [eleAnimation]="'roll_in_top'">
-            <app-object [entity]="flag" (flagSelectedEvent)="onFlagEvent($event)" ></app-object>
+          <div *ngFor="let entity of gameEntitiesArr; index as i " expAnimation [eleAnimation]="'roll_in_top'">
+            <app-object [entity]="entity" (entitySelectedEvent)="onFlagEvent($event)" ></app-object>
           </div>
         </div>
       </div>

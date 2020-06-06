@@ -42,7 +42,7 @@ export interface LevelInterval {
    
 export interface GameBack {
     mainArray: EntityDescription[];
-    possibleTrues: LevelInterval[];
-    levelsByDensity: number[][];
+    possibleTrues: number[][];
+    levelsByDensity: LevelInterval[];
 }
    

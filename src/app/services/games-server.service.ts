@@ -44,7 +44,7 @@ export class GamesServerService {
 
     let possibilitesByLevel = items.possibleTrues[level];
 
-    let minPossibilty = items.possibleTrues[level]['bottom'] ;
+    let minPossibilty = items.possibleTrues[level][0] ;
     let maxPossibilty = Array(possibilitesByLevel).length;
      
     let randomTrue = Math.floor(Math.random() * (maxPossibilty + 0.99) ) + minPossibilty;

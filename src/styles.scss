@@ -12,9 +12,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     src: url(src/assets/fonts/Montserrat/Montserrat-Black.ttf) format("opentype");
   }
 
-
-@media only screen and (max-width: 500) {
-    
+  @media only screen and (max-width: 768px) {
+        
     .center-flag {
         width: 33vw;
     }
@@ -26,7 +25,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .actualFlagName h1{
         font-size: 15vw;
     }
-}
+  }
 
 @media only screen and (min-width: 500px) {
     
