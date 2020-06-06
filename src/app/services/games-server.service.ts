@@ -5,6 +5,7 @@ import { EntityDescription , gameData, GameBack} from '../../assets/interfaces';
 import { flags, actors, topFootballPlayers, topAthletes, mobilesAllTime, mobilesNokia, appleWatches, sportCars } from '../../app/db/db';
 import { Observable, Observer } from 'rxjs';
 import { AppleIphonesData } from 'src/assets/pics/AppleIphones/data';
+import { TopFootballPlayersData1 } from 'src/assets/pics/TopFootballPlayers1/data';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,7 @@ export class GamesServerService {
   getEntities(game,level): gameData {
     switch(game){
       case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData, level )
+      case 'TOP FOOTBALL PLAYERS 1' : return this.selectElements( TopFootballPlayersData1, level )
     }
   }
 

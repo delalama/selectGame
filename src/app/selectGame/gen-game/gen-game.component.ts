@@ -167,16 +167,21 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
 
   onFlagEvent(answer){
     this.changeStats(answer);
-    this.selectGameFlags();
-    console.log("flag selected");
+
+   console.log("flag selected");
   }
 
   // isAnswerCorrect naming!
   changeStats(isAnswerCorrect){
     if(isAnswerCorrect){
       this.gameStats.correctAnswers++;
-
+      //TODO MAKE ANIMATION
+      setTimeout( () => {
+        this.selectGameFlags();
+        }, 700 );
+      
     }else{
+      //TODO BREAK ACTUAL GAME
       this.gameStats.failedAnswers++;
       this.toogleFlagWrong();
     }

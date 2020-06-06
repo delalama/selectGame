@@ -27,7 +27,8 @@ export class AppComponent {
     // {gameName:"MOBILES NOKIA", gameUrl: "mobilesNokia", levels: 1}, 
     // {gameName:"APPLE WATCHES", gameUrl: "appleWatches", levels: 1}, 
     // {gameName:"SPORT CARS", gameUrl: "sportCars", levels: 5}, 
-    {gameName:"APPLE IPHONES", gameUrl: "AppleIphones/", levels: 1}
+    {gameName:"APPLE IPHONES", gameUrl: "AppleIphones/"},
+    {gameName:"TOP FOOTBALL PLAYERS 1", gameUrl: "TopFootballPlayers1/"}
     
   ];
 

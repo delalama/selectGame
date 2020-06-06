@@ -17,7 +17,9 @@ XpAnimations['scale_in_hor_center'] = animate('0.5s 0.1s cubic-bezier(0.250, 0.4
   style({ transform: 'scaleX(1)', opacity: 1, }),
 ]));
 
-XpAnimations['only_opacity'] = animate('0.5s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940)', keyframes([
+XpAnimations['only_opacity'] = animate('1.5s 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940)', keyframes([
+  style({ visibility: 'visible', opacity: 0, }),
+  style({ visibility: 'visible', opacity: 0, }),
   style({ visibility: 'visible', opacity: 0, }),
   style({ transform: 'scaleX(1)', opacity: 1, }),
 ]));
@@ -179,7 +181,7 @@ XpAnimations['bounce_in_right']  = animate('1.5s', keyframes([
 ]));
 
 XpAnimations['bounce_in_left']  = animate('1.5s', keyframes([
-  style({ visibility: 'visible', opacity: 0, }),
+  style({ visibility: 'visible', opacity: 0 }),
   style({ transform: 'translateX(-500px)', animationTimingFunction: 'ease-in', opacity: 0, }),
   style({ transform: 'translateX(0)', animationTimingFunction: 'ease-out', opacity: 1, }),
   style({ transform: 'translateX(-65px)', animationTimingFunction: 'ease-in', }),
@@ -187,7 +189,7 @@ XpAnimations['bounce_in_left']  = animate('1.5s', keyframes([
   style({ transform: 'translateX(-28px)', animationTimingFunction: 'ease-in', }),
   style({ transform: 'translateX(0)', animationTimingFunction: 'ease-out', }),
   style({ transform: 'translateX(-8px)', animationTimingFunction: 'ease-in', }),
-  style({ transform: 'translateX(0)', animationTimingFunction: 'ease-out', }),
+  style({ transform: 'translateX(0)', animationTimingFunction: 'ease-out'  }),
 ]));
 
 XpAnimations['roll_in_top'] = animate('0.6s ease-out', keyframes([

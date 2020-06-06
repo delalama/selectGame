@@ -23,7 +23,6 @@ export interface gameData {
 export interface gameInfo {
     gameName: string;
     gameUrl: string;
-    levels?: number;
 }
 
 
