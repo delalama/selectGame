@@ -28,7 +28,8 @@ export class AppComponent {
     // {gameName:"APPLE WATCHES", gameUrl: "appleWatches", levels: 1}, 
     // {gameName:"SPORT CARS", gameUrl: "sportCars", levels: 5}, 
     {gameName:"APPLE IPHONES", gameUrl: "AppleIphones/"},
-    {gameName:"TOP FOOTBALL PLAYERS 1", gameUrl: "TopFootballPlayers1/"}
+    {gameName:"TOP FOOTBALL PLAYERS LV 1", gameUrl: "TopFootballPlayers1/"},
+    {gameName: "VIDEO GAMES SCREENSHOTS LV 1" , gameUrl: "VideoGamesScreenShots1/"}
     
   ];
 

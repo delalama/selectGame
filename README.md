@@ -43,25 +43,6 @@ GameData -> REPRESENTS THE NEEDED DATA TO DEVELOP A GAME THIS VALUE IS ONLY READ
 
 
 
-
-//TODO hacer db en assets
-
-
-//TODO db TOP ATHLETES con imágenes pequeñas
-
-
-//TODO hacer query todas entidades y extraer a db.ts
-
-
-//TODO CAMBIO RATÓN al finalizar
-
-
-//TODO FILTRO JUEGOS array.filter...." 
-
-
-//TODO REPASAR tabla actores "imposible" 
-
-
 //TODO buscador dinámico (filter search) :
 https://stackblitz.com/edit/angular-movie-read-load-json-sample-eg-vmaagz?file=src%2Fapp%2Fcustomer%2Fcustomer.component.ts
 
