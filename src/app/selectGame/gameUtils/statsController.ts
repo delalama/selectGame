@@ -8,11 +8,15 @@ gameIsFinished: boolean;
 message: string;
 answerBonusNum: number; 
 actualTime: number;
+// points
+correctAnswerPoints = 1000;
 bonusAcc: number;
 roundBonus: number;
 // timer
 stopwatch = new Stopwatch();
 
+
+     
 
     constructor() {
         this.resetStats();
@@ -27,22 +31,35 @@ stopwatch = new Stopwatch();
     getAnswer( answer: AnswerType ){
         answer == AnswerType.CORRECT ? this.correctAnswer() : this.failedAnswer();
         this.stats.leftTurns -= 1; 
-        return this.messageByTime( answer ) 
+        return this.messageByAnswer( answer ) 
     }
 
-    messageByTime(answer){
+    messageByAnswer(answer){
         let bonus = this.roundBonus;
         if(answer == "WRONG"){
             return 'se ba bé !'
-        } else if ( bonus == 0 ){
-            return '...mmm...';
-          }else if ( 5000 > bonus && bonus > 0) {
-            return 'good +' + bonus
-          }else if ( 10000 > bonus && bonus >= 5000) {
-            return  'oh mamma +' + bonus + '!!' 
-          }else if ( 15000 >= bonus && bonus >= 10000) {
-            return  'amazing +'+ bonus + '!!' 
+        } else if ( this.NOBONUS(bonus) ){
+            return '...mmm...' + this.correctAnswerPoints;
+          }else if ( this.MINBONUS(bonus) ) {
+            return 'GOOD, +' + this.correctAnswerPoints + ' + ' + bonus + "!!"
+          }else if ( this.MIDDLEBONUS(bonus) ) {
+            return  'OH MAMMA, +' + this.correctAnswerPoints + ' + ' + bonus + "!!" 
+          }else if ( this.MAXBONUS(bonus) ) {
+            return  'AMAZING, +' + this.correctAnswerPoints + ' + ' + bonus + "!!"
           }
+    }
+
+    MAXBONUS(bonus){
+        return 15000 >= bonus && bonus >= 10000;
+    }
+    MIDDLEBONUS(bonus){
+        return 10000 > bonus && bonus >= 5000;
+    }
+    MINBONUS(bonus){
+        return 5000 > bonus && bonus > 0;
+    }
+    NOBONUS(bonus){
+        return bonus == 0;
     }
 
     getPoints(){

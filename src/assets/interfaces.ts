@@ -45,7 +45,7 @@ export enum Status {
     ON,
     OFF
 }
-   
+
 export interface GameBack {
     mainArray: EntityDescription[];
     possibleTrues: number[][];
