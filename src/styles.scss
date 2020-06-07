@@ -23,8 +23,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 
     .actualFlagName h1{
-        font-size: 5vw !important;
+        font-size: 9vw !important;
     }
+
+    .messagesTable th{
+        font-size: 6vw;
+    }
+
+    .messagesTable tr{
+        height: 12vw;
+    }
+
   }
 
 @media only screen and (min-width: 500px) {
@@ -67,6 +76,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .actualFlagName h1{
         font-size: 5vw !important;
     }
+
+    .messagesTable tr{
+        height: 7vw;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -79,6 +92,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
     .actualFlagName h1{
         font-size: 5vw !important;
+    }
+    .messagesTable{
+        font-size: 3vw;
+    }
+
+    .messagesTable tr{
+        height: 7vw;
     }
 }
 
@@ -95,4 +115,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         font-size: 5vw !important;
         bottom: 10% !important;
     }
+ 
+    .messagesTable tr{
+        height: 7vw;
+    }
+    
 }

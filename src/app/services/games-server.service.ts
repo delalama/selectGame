@@ -33,7 +33,6 @@ export class GamesServerService {
       randomNum = Math.floor(Math.random() * array.length-0.001 );
       if ( randomNum == previousSelected || arraySelectedNumsPerTurn.includes(randomNum)){
           i = i-1;
-          console.log('number preselected or same as selected') 
       }else{
         arraySelectedNumsPerTurn.push(randomNum)
         // no podemos pasar referencias a las entidades, sino crear nuevas

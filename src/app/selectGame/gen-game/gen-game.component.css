@@ -16,6 +16,7 @@
   
   .flagsContainer {
     margin-top: 3vh;
+    margin-bottom: 6vw;
   }
   
   .actualFlagName {
@@ -55,9 +56,10 @@
     margin: 0 0 10px 0;
   }
   
-.table{
+.messagesTable{
   background-color: indianred;
   font-family: 'lato', 'arial', sans-serif;
+  width: 100%;
 }
 
 th, td{

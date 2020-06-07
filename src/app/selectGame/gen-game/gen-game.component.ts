@@ -84,21 +84,24 @@ export class GenGameComponent implements OnInit {
     })
   }
 
+  //TODO borrar esta función
   resetStats(){
     console.log('esto ha de quedar vacío')
   }
 
   beginNewGame(){
     this.resetStats();
+    // candidato a cadáver
     this.gameIsFinished = false;
     this.selectGameFlags();
   }
   
   selectGameFlags(){
-    console.log('quedan: ', this.statsController.stats.leftTurns)
-    this.level += 1; 
+    console.log('quedan: ', this.statsController.stats.leftTurns, ' respuestas')
 
     if(!this.gameIsFinished){
+      this.level += 1; 
+
       this.getEntitiesByLevel(this.level);
 
       for (let entity of this.gameEntitiesArr) {
@@ -121,10 +124,7 @@ export class GenGameComponent implements OnInit {
   }
 
   onFlagEvent(answer){
-    console.log('tiempo : ', this.answerTime)
     this.changeStats(answer, this.answerTime);
-
-    console.log("flag selected");
   }
 
   // isAnswerCorrect naming!
@@ -137,10 +137,9 @@ export class GenGameComponent implements OnInit {
       this.toogleFlagWrong();
       this.answerMessage = this.statsController.getAnswer(AnswerType.WRONG) 
     }
-    console.log('event -> ' + isAnswerCorrect)
     this.showBonusMessage();
     this.refreshPoints();
-    this.statsController.gameIsFinished ? this.onGameFinished(): console.log('allWruaight');
+    this.statsController.isGameFinished() ? this.onGameFinished(): console.log('game continue');
   }
 
   refreshPoints(){

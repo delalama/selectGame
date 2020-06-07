@@ -1,15 +1,11 @@
 
   <div  class="col-sm-12 col-md-12 center contents">
   
-    <table class="table">
+    <table class="messagesTable">
       <thead>
         <tr>
-          <th scope="col">PUNTOS</th>
-          <th scope="col">{{points}}</th>
+          <th *ngIf="!showBonusMessageBoolean"scope="col">{{points}}</th>
           <th *ngIf="showBonusMessageBoolean" scope="col" class="message">{{answerMessage}}</th>
-          <th scope="col"></th>
-          <!-- //TODO hacerlo como el reset button en la main barDISPARAR EVENTO CON NOMBRE DEL JUEGO Y VOLVER A CARGAR TABLA INICIO -->
-          <!-- <th scope="col" id="newGameBtn" (click)="onBeginAnotherGame()">NEW GAME</th> -->
         </tr>
       </thead>
       <tbody>

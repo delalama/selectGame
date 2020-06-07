@@ -20,7 +20,7 @@ stopwatch = new Stopwatch();
 
     constructor() {
         this.resetStats();
-        this.gameIsFinished  = this.stats.leftTurns == 0
+        this.gameIsFinished = false  ;
         this.message = '';
         this.answerBonusNum =  0;
         this.bonusAcc = 0 ; 
@@ -30,7 +30,6 @@ stopwatch = new Stopwatch();
 
     getAnswer( answer: AnswerType ){
         answer == AnswerType.CORRECT ? this.correctAnswer() : this.failedAnswer();
-        this.stats.leftTurns -= 1; 
         return this.messageByAnswer( answer ) 
     }
 
@@ -39,7 +38,7 @@ stopwatch = new Stopwatch();
         if(answer == "WRONG"){
             return 'se ba bé !'
         } else if ( this.NOBONUS(bonus) ){
-            return '...mmm...' + this.correctAnswerPoints;
+            return '...mmm... ' + this.correctAnswerPoints;
           }else if ( this.MINBONUS(bonus) ) {
             return 'GOOD, +' + this.correctAnswerPoints + ' + ' + bonus + "!!"
           }else if ( this.MIDDLEBONUS(bonus) ) {
@@ -79,6 +78,7 @@ stopwatch = new Stopwatch();
         this.roundBonus < 0 ? this.roundBonus = 0 :  
         this.bonusAcc += this.roundBonus;
         this.stats.points += 1000 + this.roundBonus;
+        this.stats.leftTurns -= 1; 
     }
 
     getBonus( time ){
@@ -90,10 +90,14 @@ stopwatch = new Stopwatch();
 
     resetStats (){
         this.stats = {
-            leftTurns : 19 ,
+            leftTurns : 20 ,
             failedAnswers : 0,
             correctAnswers : 10 ,
             points : 0
         };
+    }
+
+    isGameFinished(){
+        return this.stats.leftTurns == 0
     }
 }
