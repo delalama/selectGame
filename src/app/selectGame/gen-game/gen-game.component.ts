@@ -36,6 +36,7 @@ export class GenGameComponent implements OnInit {
   // controller
   statsController: StatsController;
   timer : TimerComponent;
+  showBonusMessageBoolean;
 
   entitiesByLevel: EntityDescription[] ;
   gameEntitiesArr: EntityDescription[];
@@ -56,6 +57,7 @@ export class GenGameComponent implements OnInit {
 
   prepareNewGame(){
     this.statsController = new StatsController; 
+    this.showBonusMessageBoolean = false;
     this.points = this.statsController.getPoints(); 
     this.timer = new TimerComponent; 
     this.level = -1 ; 
@@ -136,13 +138,13 @@ export class GenGameComponent implements OnInit {
     if(isAnswerCorrect){
       //TODO MAKE ANIMATION
       this.selectGameFlags();
-      this.answerMessage = this.statsController.getAnswer(AnswerType.Correct, answerTime) 
+      this.answerMessage = this.statsController.getAnswer(AnswerType.CORRECT, answerTime) 
     }else{
       this.toogleFlagWrong();
-      this.answerMessage = this.statsController.getAnswer(AnswerType.Wrong, answerTime) 
+      this.answerMessage = this.statsController.getAnswer(AnswerType.WRONG, answerTime) 
     }
     console.log('event -> ' + isAnswerCorrect)
-    
+    this.showBonusMessage();
     this.timer.clearTimer();
     this.refreshPoints();
     this.statsController.gameIsFinished ? this.onGameFinished(): console.log('allWruaight');
@@ -162,6 +164,14 @@ export class GenGameComponent implements OnInit {
             this.flagWrong = true;
           }
       }, 1500 );
+  }
+
+  showBonusMessage(){
+    this.showBonusMessageBoolean = true;
+    setTimeout( () => {
+      this.showBonusMessageBoolean = false;
+      }, 2500 );
+      
   }
 
   onBeginAnotherGame(){

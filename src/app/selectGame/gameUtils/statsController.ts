@@ -16,21 +16,23 @@ answerBonusNum: number;
     }
 
     getAnswer( answer: AnswerType , time: number ){
-        answer == AnswerType.Correct ? this.correctAnswer(time) : this.failedAnswer();
+        answer == AnswerType.CORRECT ? this.correctAnswer(time) : this.failedAnswer();
         this.stats.leftTurns -= 1; 
-        return this.messageByTime(time) 
+        return this.messageByTime( answer,time ) 
     }
 
-    messageByTime(time){
-        if ( time >= 15 ){
-            this.message = '...mmm...'
-        }else if ( 16 > time && time > 10) {
-            this.message = 'good +' + this.getBonus(time) 
-        }else if ( 10 >= time && time > 5) {
-            this.message = 'oh mamma +' + this.getBonus(time) + '!!' 
-        }else if ( 5 >= time && time >= 0) {
-            this.message = 'amazing +'+ this.getBonus(time) + '!!' 
-        }
+    messageByTime(answer , time){
+        if(answer == "WRONG"){
+            this.message = 'se ba bé !'
+        } else if ( time >= 15 ){
+              this.message = '...mmm...'
+          }else if ( 16 > time && time > 10) {
+              this.message = 'good +' + this.getBonus(time) 
+          }else if ( 10 >= time && time > 5) {
+              this.message = 'oh mamma +' + this.getBonus(time) + '!!' 
+          }else if ( 5 >= time && time >= 0) {
+              this.message = 'amazing +'+ this.getBonus(time) + '!!' 
+          }
         return this.message;
     }
 

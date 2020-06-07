@@ -37,8 +37,14 @@ export interface LevelInterval {
 }
 
 export enum AnswerType {
-    Correct,
-    Wrong
+    CORRECT = "CORRECT",
+    WRONG   = "WRONG"
+}
+   
+
+export enum Status {
+    ON,
+    OFF
 }
    
 export interface GameBack {
