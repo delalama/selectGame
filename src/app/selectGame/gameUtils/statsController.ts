@@ -6,25 +6,27 @@ export class StatsController  {
 stats : gameStats ;
 gameIsFinished: boolean;
 message: string;
-answerBonusNum: number; 
 actualTime: number;
+
 // points
 correctAnswerPoints = 1000;
+failedAnswerPoints = 1000;
 bonusAcc: number;
 roundBonus: number;
-// timer
+
+// timer , it acts as a typical chronometer
 stopwatch = new Stopwatch();
 
-
-     
+// flag to check if previous answer was failed
+lastAnswerFailed: boolean;
 
     constructor() {
         this.resetStats();
         this.gameIsFinished = false  ;
         this.message = '';
-        this.answerBonusNum =  0;
         this.bonusAcc = 0 ; 
         this.stopwatch.start();
+        this.lastAnswerFailed = false;
     }
 
 
@@ -33,10 +35,54 @@ stopwatch = new Stopwatch();
         return this.messageByAnswer( answer ) 
     }
 
+    getPoints(){
+        return this.stats.points;
+    }
+
+    failedAnswer(){
+        this.lastAnswerFailed = true;
+        this.stats.failedAnswers += 1;
+        this.stats.points -= 1000;
+    }
+
+    correctAnswer(){
+        this.stats.correctAnswers += 1; 
+
+        let timeObj = this.stopwatch.slice()
+        this.roundBonus = this.getBonus(timeObj);
+        this.roundBonus < 0 || this.lastAnswerFailed ? this.roundBonus = 0 :  
+        this.lastAnswerFailed = false;
+        this.bonusAcc += this.roundBonus;
+        this.stats.leftTurns -= 1; 
+        this.stats.points +=1000 + this.roundBonus;
+        
+    }
+
+    getBonus( time ){
+        let timeBetweenCorrectAnswers = Math.round( time.duration ) ;
+
+        this.actualTime = timeBetweenCorrectAnswers;
+        return 15000 - (timeBetweenCorrectAnswers) 
+    };
+
+    resetStats (){
+        this.stats = {
+            leftTurns : 20 ,
+            failedAnswers : 0,
+            correctAnswers : 10 ,
+            points : 0
+        };
+    }
+
+    // booleans Staff
+    isGameFinished(){
+        return this.stats.leftTurns == 0
+    }
+
     messageByAnswer(answer){
         let bonus = this.roundBonus;
         if(answer == "WRONG"){
-            return 'se ba bé !'
+            return 'NO ! , -' + this.failedAnswerPoints + ' !!' 
         } else if ( this.NOBONUS(bonus) ){
             return '...mmm... ' + this.correctAnswerPoints;
           }else if ( this.MINBONUS(bonus) ) {
@@ -61,43 +107,4 @@ stopwatch = new Stopwatch();
         return bonus == 0;
     }
 
-    getPoints(){
-        return this.stats.points;
-    }
-
-    failedAnswer(){
-        this.stats.failedAnswers += 1;
-        this.stats.points -= 1000;
-    }
-
-    correctAnswer(){
-        this.stats.correctAnswers += 1; 
-
-        let timeObj = this.stopwatch.slice()
-        this.roundBonus = this.getBonus(timeObj);
-        this.roundBonus < 0 ? this.roundBonus = 0 :  
-        this.bonusAcc += this.roundBonus;
-        this.stats.points += 1000 + this.roundBonus;
-        this.stats.leftTurns -= 1; 
-    }
-
-    getBonus( time ){
-        let timeBetweenCorrectAnswers = Math.round( time.duration ) ;
-
-        this.actualTime = timeBetweenCorrectAnswers;
-        return 15000 - (timeBetweenCorrectAnswers) 
-    }
-
-    resetStats (){
-        this.stats = {
-            leftTurns : 20 ,
-            failedAnswers : 0,
-            correctAnswers : 10 ,
-            points : 0
-        };
-    }
-
-    isGameFinished(){
-        return this.stats.leftTurns == 0
-    }
 }
