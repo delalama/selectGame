@@ -1,5 +1,5 @@
 import {gameStats, AnswerType} from '../../../assets/interfaces'
-import { BoundTextAst } from '@angular/compiler';
+import { Stopwatch } from "ts-stopwatch";
 
 export class StatsController  {
 
@@ -7,33 +7,42 @@ stats : gameStats ;
 gameIsFinished: boolean;
 message: string;
 answerBonusNum: number; 
+actualTime: number;
+bonusAcc: number;
+roundBonus: number;
+// timer
+stopwatch = new Stopwatch();
+
 
     constructor() {
-          this.resetStats();
-          this.gameIsFinished  = this.stats.leftTurns == 0
-          this.message = '';
-          this.answerBonusNum =  0;
+        this.resetStats();
+        this.gameIsFinished  = this.stats.leftTurns == 0
+        this.message = '';
+        this.answerBonusNum =  0;
+        this.bonusAcc = 0 ; 
+        this.stopwatch.start();
     }
 
-    getAnswer( answer: AnswerType , time: number ){
-        answer == AnswerType.CORRECT ? this.correctAnswer(time) : this.failedAnswer();
+
+    getAnswer( answer: AnswerType ){
+        answer == AnswerType.CORRECT ? this.correctAnswer() : this.failedAnswer();
         this.stats.leftTurns -= 1; 
-        return this.messageByTime( answer,time ) 
+        return this.messageByTime( answer ) 
     }
 
-    messageByTime(answer , time){
+    messageByTime(answer){
+        let bonus = this.roundBonus;
         if(answer == "WRONG"){
-            this.message = 'se ba bé !'
-        } else if ( time >= 15 ){
-              this.message = '...mmm...'
-          }else if ( 16 > time && time > 10) {
-              this.message = 'good +' + this.getBonus(time) 
-          }else if ( 10 >= time && time > 5) {
-              this.message = 'oh mamma +' + this.getBonus(time) + '!!' 
-          }else if ( 5 >= time && time >= 0) {
-              this.message = 'amazing +'+ this.getBonus(time) + '!!' 
+            return 'se ba bé !'
+        } else if ( bonus == 0 ){
+            return '...mmm...';
+          }else if ( 5000 > bonus && bonus > 0) {
+            return 'good +' + bonus
+          }else if ( 10000 > bonus && bonus >= 5000) {
+            return  'oh mamma +' + bonus + '!!' 
+          }else if ( 15000 >= bonus && bonus >= 10000) {
+            return  'amazing +'+ bonus + '!!' 
           }
-        return this.message;
     }
 
     getPoints(){
@@ -42,17 +51,24 @@ answerBonusNum: number;
 
     failedAnswer(){
         this.stats.failedAnswers += 1;
-        this.stats.points -= 1;
+        this.stats.points -= 1000;
     }
 
-    correctAnswer(time: number){
-        this.stats.points += this.getBonus(time);
+    correctAnswer(){
         this.stats.correctAnswers += 1; 
-        this.stats.points += 1;
+
+        let timeObj = this.stopwatch.slice()
+        this.roundBonus = this.getBonus(timeObj);
+        this.roundBonus < 0 ? this.roundBonus = 0 :  
+        this.bonusAcc += this.roundBonus;
+        this.stats.points += 1000 + this.roundBonus;
     }
 
-    getBonus(time){
-        return 15 - time
+    getBonus( time ){
+        let timeBetweenCorrectAnswers = Math.round( time.duration ) ;
+
+        this.actualTime = timeBetweenCorrectAnswers;
+        return 15000 - (timeBetweenCorrectAnswers) 
     }
 
     resetStats (){

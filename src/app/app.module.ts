@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule} from '@angular/material/list';
 import { GamesTableComponent } from './components/games-table/games-table.component';
 import { GenGameComponent } from './selectGame/gen-game/gen-game.component';
-import { TimerComponent } from './selectGame/gameUtils/timer/TimerComponent';
 import { ObjectComponent } from './selectGame/gen-game/object/object.component';
 import { HttpClientModule } from '@angular/common/http';
 import { XpAnimationDirective } from './animations/xp-animation-directive.directive';
@@ -26,8 +25,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     GamesTableComponent,
     GenGameComponent,
     ObjectComponent,
-    XpAnimationDirective,
-    TimerComponent
+    XpAnimationDirective
   ],
   imports: [
     BrowserModule,

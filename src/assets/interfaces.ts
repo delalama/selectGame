@@ -40,7 +40,6 @@ export enum AnswerType {
     CORRECT = "CORRECT",
     WRONG   = "WRONG"
 }
-   
 
 export enum Status {
     ON,

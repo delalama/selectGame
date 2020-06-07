@@ -25,9 +25,9 @@
       
 
       <!--  flags container-->
-      <div class="flagsContainer row center-image"  expAnimation [eleAnimation]="'rotate_animation'">
+      <div class="flagsContainer row center-image" >
         <div class="col-sm-12 col-md-12 center contents"  >
-          <div *ngFor="let entity of gameEntitiesArr; index as i " >
+          <div *ngFor="let entity of gameEntitiesArr; index as i " expAnimation [eleAnimation]="'puff_in'" >
             <app-object [entity]="entity" (entitySelectedEvent)="onFlagEvent($event)" ></app-object>
           </div>
         </div>
@@ -46,7 +46,7 @@
   </div>
   
   <div class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
-    <h1>{{gameSelectedEntityName}} </h1>
+    <h1 class="textActualFlag">{{gameSelectedEntityName}} </h1>
   </div>
 <!-- 
   <div>

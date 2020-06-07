@@ -6,7 +6,6 @@ import { Observable , Observer} from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { element } from 'protractor';
 import { StatsController } from '../gameUtils/statsController';
-import { TimerComponent } from '../gameUtils/timer/TimerComponent';
 
 
 @Component({
@@ -35,7 +34,6 @@ export class GenGameComponent implements OnInit {
   answerMessage: string;
   // controller
   statsController: StatsController;
-  timer : TimerComponent;
   showBonusMessageBoolean;
 
   entitiesByLevel: EntityDescription[] ;
@@ -59,7 +57,6 @@ export class GenGameComponent implements OnInit {
     this.statsController = new StatsController; 
     this.showBonusMessageBoolean = false;
     this.points = this.statsController.getPoints(); 
-    this.timer = new TimerComponent; 
     this.level = -1 ; 
     this.gamePicsUrl = this.game.gameUrl;
     this.gameName = this.game.gameName;
@@ -110,7 +107,6 @@ export class GenGameComponent implements OnInit {
         });
       }
     }
-    this.timer.startTimer();
   }
 
   onGameFinished(){
@@ -125,9 +121,7 @@ export class GenGameComponent implements OnInit {
   }
 
   onFlagEvent(answer){
-    this.answerTime = this.timer.timerRef;
     console.log('tiempo : ', this.answerTime)
-    this.timer.clearTimer;
     this.changeStats(answer, this.answerTime);
 
     console.log("flag selected");
@@ -138,14 +132,13 @@ export class GenGameComponent implements OnInit {
     if(isAnswerCorrect){
       //TODO MAKE ANIMATION
       this.selectGameFlags();
-      this.answerMessage = this.statsController.getAnswer(AnswerType.CORRECT, answerTime) 
+      this.answerMessage = this.statsController.getAnswer(AnswerType.CORRECT) 
     }else{
       this.toogleFlagWrong();
-      this.answerMessage = this.statsController.getAnswer(AnswerType.WRONG, answerTime) 
+      this.answerMessage = this.statsController.getAnswer(AnswerType.WRONG) 
     }
     console.log('event -> ' + isAnswerCorrect)
     this.showBonusMessage();
-    this.timer.clearTimer();
     this.refreshPoints();
     this.statsController.gameIsFinished ? this.onGameFinished(): console.log('allWruaight');
   }

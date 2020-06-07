@@ -20,20 +20,26 @@
   
   .actualFlagName {
     display: flex;
-    align-items: center;
-    line-height: 20px;
-    justify-content: center;
+    /* align-items: center; */
     position: fixed;
-    left: 0;
-    bottom: 3vw;
+    bottom: 2vw;
     width: 100%;
     color: white;
     text-align: center;
     z-index: 5;
+    display: inline;
+    background: orange;
+    box-shadow: 10px 0 0 orange, -10px 0 0 orange;
   }
 
   .actualFlagName h1{
     font-family: 'lato', 'arial', sans-serif;
+  }
+
+  .textActualFlag{
+    display: inline;
+    background: orange;
+    line-height: 122%;
   }
   
   /*RALPH ANIMATION*/
