@@ -14,7 +14,6 @@ export interface EntityDescription {
     link?: string;
 }
 
-
 export interface gameData {
     entities: EntityDescription[];
     selected: EntityDescription;
@@ -25,24 +24,25 @@ export interface gameInfo {
     gameUrl: string;
 }
 
-
 export interface gameStats {
-    points : number;
-    left : number;
-    correctAnswers: number;
+    leftTurns : number;
     failedAnswers: number;
-   }
-
+    correctAnswers: number;
+    points : number;
+}
    
 export interface LevelInterval {
     bottom: number;
     top: number;
 }
-   
+
+export enum AnswerType {
+    Correct,
+    Wrong
+}
    
 export interface GameBack {
     mainArray: EntityDescription[];
     possibleTrues: number[][];
     levelsByDensity: LevelInterval[];
 }
-   

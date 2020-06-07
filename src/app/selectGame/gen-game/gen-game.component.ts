@@ -1,10 +1,13 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
-import { Entity ,EntityDescription, gameStats, gameData} from '../../../assets/interfaces';
+import { AnswerType , EntityDescription, gameData } from '../../../assets/interfaces';
 import { Observable , Observer} from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { element } from 'protractor';
+import { StatsController } from '../gameUtils/statsController';
+import { TimerComponent } from '../gameUtils/timer/TimerComponent';
+
 
 @Component({
   selector: 'app-gen-game',
@@ -15,55 +18,51 @@ import { element } from 'protractor';
 })
 
 
-export class GenGameComponent implements OnInit,  AfterViewInit {
+export class GenGameComponent implements OnInit {
 @Input() game ;
  
-// game constants
+  // game constants
+  path = 'assets/pics/'
   maxNumberOfItems = 12 ;
-  url ;
+  gamePicsUrl ;
   gameName ;
   gameData: gameData;
-// game variables
+
+  // game variables
   level;
-  // entitiesByTypeArray: Entity[] ;
-  entitiesByTypeArray: EntityDescription[] ;
+  points: number;
+  answerTime;
+  answerMessage: string;
+  // controller
+  statsController: StatsController;
+  timer : TimerComponent;
+
+  entitiesByLevel: EntityDescription[] ;
   gameEntitiesArr: EntityDescription[];
   flagWrong = false;
   gameIsFinished = false;
   gameSelectedEntityName ; 
-  gameStats: gameStats = {
-    correctAnswers: 0,
-    failedAnswers: 0,
-    left: 20
-  };
   resetGame = false;
-  previousSelectedFlags = [];
 
   // anmimations
   eleAnimation = 'slide_in_elliptic_left';
 
-  path = 'assets/pics/'
-
-  constructor(private server: GamesServerService, private animationBuilder: AnimationBuilder) { 
+  constructor(private server: GamesServerService) {
   }
-
 
   ngOnInit(): void {
     this.prepareNewGame();
   }
-  
-  ngAfterViewInit() {
-  }
 
   prepareNewGame(){
+    this.statsController = new StatsController; 
+    this.points = this.statsController.getPoints(); 
+    this.timer = new TimerComponent; 
     this.level = -1 ; 
-    this.url = this.game.gameUrl;
+    this.gamePicsUrl = this.game.gameUrl;
     this.gameName = this.game.gameName;
     this.gameIsFinished = false;
     this.selectGameFlags();
-    this.gameStats.correctAnswers = 0 ; 
-    this.gameStats.failedAnswers = 0 ; 
-    this.gameStats.left = 20 ; 
   }
 
   resetEntitiesArray(){
@@ -75,64 +74,29 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   getEntitiesByLevel(level){
     this.gameData = this.server.getEntities(this.gameName , level);
     this.gameEntitiesArr = this.gameData.entities;
+    
+    // CANDIDATO A CADÁVER
     this.gameSelectedEntityName = this.replaceSlashed(this.gameData.selected.name);
 
     let src;
     this.gameEntitiesArr.forEach(element =>{
       src = element.src;
-      element.src = this.path + this.url + src
+      element.src = this.path + this.gamePicsUrl + src
     })
-
-    setTimeout( () => {
-          console.log(this.entitiesByTypeArray);
-    }, 1500 );
-  }
-
-  getFirstEntities(level){
-    // this.getEntitiesByLevel(level)
-
-     this.beginNewGame();
   }
 
   resetStats(){
-    this.gameStats = {
-      left : this.maxNumberOfItems,
-      correctAnswers : 0 ,
-      failedAnswers : 0 
-    };
-
+    console.log('esto ha de quedar vacío')
   }
 
   beginNewGame(){
     this.resetStats();
     this.gameIsFinished = false;
     this.selectGameFlags();
-    
   }
   
-  selectRandomItem(flagsArray): number{
-    return Math.floor(Math.random() * flagsArray.length);
-  }
-  
-  getDifferentRandomNumsFromArray(arrFrom){
-    var candidatesNumsArr = [];
-    var randomNumsArr = [];
-    for(var i = 0 ; i< arrFrom.length; i++){
-      candidatesNumsArr.push(i);
-    }    
-    
-    for(var i = 0 ; i< this.maxNumberOfItems; i++){
-      var numSelected = this.selectRandomItem(candidatesNumsArr);
-      randomNumsArr.push(candidatesNumsArr[numSelected]) ;
-      candidatesNumsArr.splice(numSelected,1);
-    }    
-
-    return randomNumsArr;
-  }
-
-
   selectGameFlags(){
-    console.log('quedan: ', this.gameStats.left)
+    console.log('quedan: ', this.statsController.stats.leftTurns)
     this.level += 1; 
 
     if(!this.gameIsFinished){
@@ -144,6 +108,7 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
         });
       }
     }
+    this.timer.startTimer();
   }
 
   onGameFinished(){
@@ -158,30 +123,36 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
   }
 
   onFlagEvent(answer){
-    this.changeStats(answer);
+    this.answerTime = this.timer.timerRef;
+    console.log('tiempo : ', this.answerTime)
+    this.timer.clearTimer;
+    this.changeStats(answer, this.answerTime);
 
-   console.log("flag selected");
+    console.log("flag selected");
   }
 
   // isAnswerCorrect naming!
-  changeStats(isAnswerCorrect){
+  changeStats(isAnswerCorrect, answerTime){
     if(isAnswerCorrect){
-      this.gameStats.correctAnswers++;
       //TODO MAKE ANIMATION
       this.selectGameFlags();
-      
+      this.answerMessage = this.statsController.getAnswer(AnswerType.Correct, answerTime) 
     }else{
-      this.onGameFinished();
-      this.gameStats.failedAnswers++;
       this.toogleFlagWrong();
+      this.answerMessage = this.statsController.getAnswer(AnswerType.Wrong, answerTime) 
     }
-    this.gameStats.left--;
-
-    if(this.gameStats.left == 1){
-      this.onGameFinished();
-    }
+    console.log('event -> ' + isAnswerCorrect)
+    
+    this.timer.clearTimer();
+    this.refreshPoints();
+    this.statsController.gameIsFinished ? this.onGameFinished(): console.log('allWruaight');
   }
 
+  refreshPoints(){
+    this.points = this.statsController.stats.points;
+  }
+
+  // WTF IS THIS SHIT MADAFACA
   toogleFlagWrong(){
      this.flagWrong = true;
      setTimeout( () => {
@@ -197,7 +168,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     this.resetEntitiesArray();
     this.gameIsFinished = true;
     this.resetGame = false;
-    this.previousSelectedFlags = [];
     this.prepareNewGame()
   }
 
@@ -205,7 +175,6 @@ export class GenGameComponent implements OnInit,  AfterViewInit {
     this.resetGame = false;
   }
 
-  // fetch images methods
   getBase64ImageFromURL(url: string) {
    return Observable.create((observer: Observer<string>) => {
      // create an image object
