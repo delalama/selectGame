@@ -13,12 +13,10 @@
     </table>
   
     <div *ngIf="!gameIsFinished">
-   
-      <!-- <div class="move-me ">
-        <img *ngIf="flagWrong" class="img-fluid center-flag ralph" src="assets/ralph.gif">
-      </div> -->
 
-      
+      <div>
+        <mat-progress-bar color="primary" value={{progressBarValue}}></mat-progress-bar>
+      </div> 
 
       <!--  flags container-->
       <div class="flagsContainer row center-image" >
@@ -29,8 +27,12 @@
         </div>
       </div>
   
+     
+
     </div>
   
+   
+
     <div *ngIf="resetGame" class="endGameRepeatDiv">
       <h1>OTRA PARTIDA?</h1>
       <h1 (click)="onBeginAnotherGame()" >SI</h1>
@@ -44,7 +46,3 @@
   <div *ngIf="!resetGame" class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
     <h1 class="textActualFlag">{{gameSelectedEntityName}} </h1>
   </div>
-<!-- 
-  <div>
-    <mat-progress-bar></mat-progress-bar>
-  </div> -->

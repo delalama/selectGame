@@ -29,6 +29,7 @@ export class GenGameComponent implements OnInit {
 
   // game variables
   level;
+  progressBarValue;
   points: number;
   answerTime;
   answerMessage: string;
@@ -58,6 +59,7 @@ export class GenGameComponent implements OnInit {
     this.showBonusMessageBoolean = false;
     this.points = this.statsController.getPoints(); 
     this.level = -1 ; 
+    this.progressBarValue = 0 ; 
     this.gamePicsUrl = this.game.gameUrl;
     this.gameName = this.game.gameName;
     this.gameIsFinished = false;
@@ -101,7 +103,7 @@ export class GenGameComponent implements OnInit {
 
     if(!this.statsController.isGameFinished()){
       this.level += 1; 
-
+      this.progressBarValue = this.level * 5;
       this.getEntitiesByLevel(this.level);
 
       for (let entity of this.gameEntitiesArr) {

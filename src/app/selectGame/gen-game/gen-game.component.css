@@ -92,5 +92,8 @@ th, td{
   text-align: center;
 }
 
+mat-progress-bar{
+  height: 15px;
+}
 /* css  flagname */
 
