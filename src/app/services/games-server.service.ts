@@ -11,9 +11,9 @@ import { computeMsgId } from '@angular/compiler';
 import { VideoGamesScreenShots2Data } from 'src/assets/pics/VideoGamesScreenShots2/data';
 import { VideoGamesScreenShots3Data } from 'src/assets/pics/VideoGamesScreenShots3/data';
 import { VideoGamesScreenShots4Data } from 'src/assets/pics/VideoGamesScreenShots4/data';
-
-
-
+import {     LolCharactersData      } from 'src/assets/pics/LolCharacters/data';
+ 
+ 
 
 
 @Injectable({
@@ -87,7 +87,8 @@ export class GamesServerService {
       case 'VIDEO GAMES SCREENSHOTS LV 2' : return this.selectElements( VideoGamesScreenShots2Data, level )
       case 'VIDEO GAMES SCREENSHOTS LV 3' : return this.selectElements( VideoGamesScreenShots3Data, level )
       case 'VIDEO GAMES SCREENSHOTS LV 4' : return this.selectElements( VideoGamesScreenShots4Data, level )
-  
+      case 'LOL CHARACTERS' : return this.selectElements( LolCharactersData, level )
+      
     }
   }
 

@@ -27,7 +27,11 @@ export class AppComponent {
     {gameName: 'VIDEO GAMES SCREENSHOTS LV 2' , gameUrl: 'VideoGamesScreenShots2/'},
     {gameName: 'VIDEO GAMES SCREENSHOTS LV 3' , gameUrl: 'VideoGamesScreenShots3/'},
     {gameName: 'VIDEO GAMES SCREENSHOTS LV 4' , gameUrl: 'VideoGamesScreenShots4/'},
-    
+    {gameName: 'LOL CHARACTERS' , gameUrl: 'LolCharacters/'},
+
+
+
+
 
   ];
 
