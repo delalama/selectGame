@@ -41,7 +41,7 @@
   
   </div>
   
-  <div class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
+  <div *ngIf="!resetGame" class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
     <h1 class="textActualFlag">{{gameSelectedEntityName}} </h1>
   </div>
 <!-- 

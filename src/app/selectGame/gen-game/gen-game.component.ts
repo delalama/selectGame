@@ -99,7 +99,7 @@ export class GenGameComponent implements OnInit {
   selectGameFlags(){
     console.log('quedan: ', this.statsController.stats.leftTurns, ' respuestas')
 
-    if(!this.gameIsFinished){
+    if(!this.statsController.isGameFinished()){
       this.level += 1; 
 
       this.getEntitiesByLevel(this.level);
@@ -131,15 +131,16 @@ export class GenGameComponent implements OnInit {
   changeStats(isAnswerCorrect, answerTime){
     if(isAnswerCorrect){
       //TODO MAKE ANIMATION
-      this.selectGameFlags();
       this.answerMessage = this.statsController.getAnswer(AnswerType.CORRECT) 
+      this.selectGameFlags();
     }else{
       this.toogleFlagWrong();
       this.answerMessage = this.statsController.getAnswer(AnswerType.WRONG) 
     }
     this.showBonusMessage();
     this.refreshPoints();
-    this.statsController.isGameFinished() ? this.onGameFinished(): console.log('game continue');
+    this.statsController.isGameFinished() ? this.onGameFinished(): console.log('continue');
+
   }
 
   refreshPoints(){

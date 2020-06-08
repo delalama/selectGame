@@ -71,7 +71,7 @@ lastAnswerFailed: boolean;
         this.stats = {
             leftTurns : 20 ,
             failedAnswers : 0,
-            correctAnswers : 10 ,
+            correctAnswers : 0 ,
             points : 0
         };
     }
