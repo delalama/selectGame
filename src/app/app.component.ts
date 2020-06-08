@@ -16,21 +16,19 @@ export class AppComponent {
   // animation
   eleAnimation = 'swirl_fwd';
 
-
+  
+  
+   
   
   gamesNamesParent: gameInfo[] = [
-       // {gameName:"FLAGS", gameUrl: "flags", levels: 5}, 
-    // {gameName:"ACTORS", gameUrl: "actors", levels: 5}, 
-    // {gameName:"TOP FOOTBALL PLAYERS", gameUrl: "topFootballPlayers", levels: 3}, 
-    //  // {gameName:"TOP ATHLETES", gameUrl: "topAthletes", levels: 4}, 
-    // {gameName:"MOBILES ALL TIME", gameUrl: "mobilesAllTime", levels: 3}, 
-    // {gameName:"MOBILES NOKIA", gameUrl: "mobilesNokia", levels: 1}, 
-    // {gameName:"APPLE WATCHES", gameUrl: "appleWatches", levels: 1}, 
-    // {gameName:"SPORT CARS", gameUrl: "sportCars", levels: 5}, 
     {gameName:"APPLE IPHONES", gameUrl: "AppleIphones/"},
     {gameName:"TOP FOOTBALL PLAYERS LV 1", gameUrl: "TopFootballPlayers1/"},
-    {gameName: "VIDEO GAMES SCREENSHOTS LV 1" , gameUrl: "VideoGamesScreenShots1/"}
+    {gameName: "VIDEO GAMES SCREENSHOTS LV 1" , gameUrl: "VideoGamesScreenShots1/"},
+    {gameName: 'VIDEO GAMES SCREENSHOTS LV 2' , gameUrl: 'VideoGamesScreenShots2/'},
+    {gameName: 'VIDEO GAMES SCREENSHOTS LV 3' , gameUrl: 'VideoGamesScreenShots3/'},
+    {gameName: 'VIDEO GAMES SCREENSHOTS LV 4' , gameUrl: 'VideoGamesScreenShots4/'},
     
+
   ];
 
   tableGameSelected(game: gameInfo ) {

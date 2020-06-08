@@ -50,7 +50,9 @@ lastAnswerFailed: boolean;
 
         let timeObj = this.stopwatch.slice()
         this.roundBonus = this.getBonus(timeObj);
-        this.roundBonus < 0 || this.lastAnswerFailed ? this.roundBonus = 0 :  
+        if( this.roundBonus < 0 || this.lastAnswerFailed ){
+            this.roundBonus = 0 ;
+        }
         this.lastAnswerFailed = false;
         this.bonusAcc += this.roundBonus;
         this.stats.leftTurns -= 1; 

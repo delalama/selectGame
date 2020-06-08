@@ -8,6 +8,13 @@ import { AppleIphonesData } from 'src/assets/pics/AppleIphones/data';
 import { TopFootballPlayersData1 } from 'src/assets/pics/TopFootballPlayers1/data';
 import { VideoGamesScreenShots1Data } from 'src/assets/pics/VideoGamesScreenShots1/data';
 import { computeMsgId } from '@angular/compiler';
+import { VideoGamesScreenShots2Data } from 'src/assets/pics/VideoGamesScreenShots2/data';
+import { VideoGamesScreenShots3Data } from 'src/assets/pics/VideoGamesScreenShots3/data';
+import { VideoGamesScreenShots4Data } from 'src/assets/pics/VideoGamesScreenShots4/data';
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -77,6 +84,10 @@ export class GamesServerService {
       case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData, level )
       case 'TOP FOOTBALL PLAYERS LV 1' : return this.selectElements( TopFootballPlayersData1, level )
       case 'VIDEO GAMES SCREENSHOTS LV 1' : return this.selectElements( VideoGamesScreenShots1Data, level )
+      case 'VIDEO GAMES SCREENSHOTS LV 2' : return this.selectElements( VideoGamesScreenShots2Data, level )
+      case 'VIDEO GAMES SCREENSHOTS LV 3' : return this.selectElements( VideoGamesScreenShots3Data, level )
+      case 'VIDEO GAMES SCREENSHOTS LV 4' : return this.selectElements( VideoGamesScreenShots4Data, level )
+  
     }
   }
 
