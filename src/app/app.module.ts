@@ -9,12 +9,13 @@ import { MatDividerModule} from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule} from '@angular/material/list';
 import { GamesTableComponent } from './components/games-table/games-table.component';
+import { FilterPipe } from './components/games-table/FilterPipe';
 import { GenGameComponent } from './selectGame/gen-game/gen-game.component';
 import { ObjectComponent } from './selectGame/gen-game/object/object.component';
 import { HttpClientModule } from '@angular/common/http';
 import { XpAnimationDirective } from './animations/xp-animation-directive.directive';
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 // import { routes } from './router/routes';
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     GamesTableComponent,
     GenGameComponent,
     ObjectComponent,
-    XpAnimationDirective
+    XpAnimationDirective,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDividerModule,
     MatListModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

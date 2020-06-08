@@ -3,14 +3,18 @@
 <table class="table table-hover table-dark">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th class="topGames" scope="col">TOP JUEGOS</th>
+        <th scope="col">
+          <div>
+            <input matInput="" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let game of gameInfo;let indexOfgame=index;" (click)="emitEvent(game)" class="gameRow" >
-        <th scope="row">{{indexOfgame+1}}</th>
+      <tr *ngFor="let game of gameInfo | filter : 'gameName' : searchString ; let indexOfgame=index;" (click)="emitEvent(game)" class="gameRow" >
         <td style="font-family: lato;">{{game.gameName}}</td>
+        <td class='emptyTd'></td>
       </tr>
     </tbody>
   </table>

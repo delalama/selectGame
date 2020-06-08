@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { gameInfo } from '../../../assets/interfaces';
 
 @Component({
   selector: 'app-games-table',
@@ -6,13 +7,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./games-table.component.scss']
 })
 export class GamesTableComponent implements OnInit {
-@Input () gameInfo;
+@Input () gameInfo: gameInfo[];
 @Output() onGameSelected = new EventEmitter<string>();
 
+searchString;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  applyFilter(filterValue: string) {
+    this.searchString = filterValue.toLowerCase() ;
   }
 
   emitEvent(name: string){
