@@ -13,7 +13,11 @@ import { VideoGamesScreenShots3Data } from 'src/assets/pics/VideoGamesScreenShot
 import { VideoGamesScreenShots4Data } from 'src/assets/pics/VideoGamesScreenShots4/data';
 import {     LolCharactersData      } from 'src/assets/pics/LolCharacters/data';
 import { LolItemsData } from 'src/assets/pics/LolItems/data';
-     
+import { TOPACTORSData } from 'src/assets/pics/TOPACTORS/data';
+ 
+ 
+ 
+
      
  
 
@@ -91,7 +95,8 @@ export class GamesServerService {
       case 'VIDEO GAMES SCREENSHOTS LV 4' : return this.selectElements( VideoGamesScreenShots4Data, level )
       case 'LOL CHARACTERS' : return this.selectElements( LolCharactersData, level )
       case 'LOL ITEMS' : return this.selectElements( LolItemsData, level )
-      
+      case 'TOP ACTORS' : return this.selectElements( TOPACTORSData, level )
+
     }
   }
 
