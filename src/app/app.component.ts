@@ -30,7 +30,8 @@ export class AppComponent {
     {gameName: 'LOL CHARACTERS' , gameUrl: 'LolCharacters/'},
     {gameName: 'LOL ITEMS' , gameUrl: 'LolItems/'},
     {gameName: 'TOP ACTORS' , gameUrl: 'TOPACTORS/'},
-
+    {gameName: 'POKEMONS' , gameUrl: 'POKEMONS/'},
+     
 
 
   ];
