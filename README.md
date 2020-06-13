@@ -28,24 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-INTERFACES
-GameData -> REPRESENTS THE NEEDED DATA TO DEVELOP A GAME THIS VALUE IS ONLY READ ON GAME-SERVICE
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TODO buscador dinámico (filter search) :
-https://stackblitz.com/edit/angular-movie-read-load-json-sample-eg-vmaagz?file=src%2Fapp%2Fcustomer%2Fcustomer.component.ts
-
 
 //TODO audio final partida
 playAudio(){
@@ -55,3 +37,7 @@ playAudio(){
   audio.play();
 }
 this.playAudio();
+
+
+
+//TODO LAZY LOADING

@@ -2,28 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { EntityDescription , gameData, GameBack} from '../../assets/interfaces';
-import { flags, actors, topFootballPlayers, topAthletes, mobilesAllTime, mobilesNokia, appleWatches, sportCars } from '../../app/db/db';
-import { Observable, Observer } from 'rxjs';
-import { AppleIphonesData } from 'src/assets/pics/AppleIphones/data';
-import { TopFootballPlayersData1 } from 'src/assets/pics/TopFootballPlayers1/data';
-import { VideoGamesScreenShots1Data } from 'src/assets/pics/VideoGamesScreenShots1/data';
-import { computeMsgId } from '@angular/compiler';
-import { VideoGamesScreenShots2Data } from 'src/assets/pics/VideoGamesScreenShots2/data';
-import { VideoGamesScreenShots3Data } from 'src/assets/pics/VideoGamesScreenShots3/data';
-import { VideoGamesScreenShots4Data } from 'src/assets/pics/VideoGamesScreenShots4/data';
-import {     LolCharactersData      } from 'src/assets/pics/LolCharacters/data';
-import { LolItemsData } from 'src/assets/pics/LolItems/data';
-import { TOPACTORSData } from 'src/assets/pics/TOPACTORS/data';
-import { POKEMONSData } from 'src/assets/pics/POKEMONS/data';
-     
-     
-     
-
- 
- 
-
-     
- 
 
 
 @Injectable({
@@ -32,8 +10,16 @@ import { POKEMONSData } from 'src/assets/pics/POKEMONS/data';
 
 export class GamesServerService {
   levelRanges ;
-  
-  constructor() { }
+  http;
+  dataPossibleTrues;
+  dataEntities;
+  selectedGame: GameBack
+
+  constructor( private httpClient : HttpClient ) {
+    this.http = httpClient;
+    this.dataPossibleTrues = [];
+    this.dataEntities = [];
+   }
    
   filterByLevel({ items, startIndex, endIndex}) {
     return items.filter((_, index) => index >= startIndex && index <= endIndex)
@@ -61,24 +47,40 @@ export class GamesServerService {
   }
   
 
-  selectElements( items: GameBack , level ) {
+  async importGame(gameFolder: string){
+    var url = 'assets/pics/' + gameFolder + 'dataEntities.json'
+      this.http.get(url)
+        .subscribe(data => {
+            this.dataEntities = data;
+            console.log('entities : ' , data)
+      });
+    var url = 'assets/pics/' + gameFolder + 'dataPossibleTrues.json'
+      this.http.get(url)
+        .subscribe(data => {
+          this.dataPossibleTrues = data;
+          console.log('possibleTrues : ' , data)
+        });
+      console.log('game imported')
+  }
+
+  selectElements( level ) {
     let arrayToReturn : gameData = {
       entities: [],
       selected: {popular:0,selected: false,src:'',name:''}
     };
     
-    let possibilitesByLevel = items.possibleTrues[level];
+    let possibilitesByLevel = this.dataPossibleTrues[level];
 
-    let minPossibilty = items.possibleTrues[level][0] ;
-    // let maxPossibilty = Array(possibilitesByLevel).length;
+    let minPossibilty = this.dataPossibleTrues[level][0] ;
+    
     let maxPossibilty = possibilitesByLevel.length;
      
     let randomTrue = Math.floor(Math.random() * (maxPossibilty) ) + minPossibilty;
     
-    let selectedElement = Object.assign({},items.mainArray[randomTrue]);
+    let selectedElement = Object.assign({},this.dataEntities[randomTrue]);
     selectedElement.selected = true;
 
-    arrayToReturn.entities = this.getTwelveElementsFromArray(items.mainArray, randomTrue); 
+    arrayToReturn.entities = this.getTwelveElementsFromArray(this.dataEntities, randomTrue); 
     
     let randomPositionToPushTrue = Math.floor(Math.random() * 12 );
 
@@ -87,34 +89,6 @@ export class GamesServerService {
 
     return arrayToReturn
   }
-
-
-  getEntities(game,level): gameData {
-    switch(game){
-      case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData, level )
-      case 'TOP FOOTBALL PLAYERS LV 1' : return this.selectElements( TopFootballPlayersData1, level )
-      case 'VIDEO GAMES SCREENSHOTS LV 1' : return this.selectElements( VideoGamesScreenShots1Data, level )
-      case 'VIDEO GAMES SCREENSHOTS LV 2' : return this.selectElements( VideoGamesScreenShots2Data, level )
-      case 'VIDEO GAMES SCREENSHOTS LV 3' : return this.selectElements( VideoGamesScreenShots3Data, level )
-      case 'VIDEO GAMES SCREENSHOTS LV 4' : return this.selectElements( VideoGamesScreenShots4Data, level )
-      case 'LOL CHARACTERS' : return this.selectElements( LolCharactersData, level )
-      case 'LOL ITEMS' : return this.selectElements( LolItemsData, level )
-      case 'TOP ACTORS' : return this.selectElements( TOPACTORSData, level )
-      case 'POKEMONS'  : return this.selectElements( POKEMONSData, level )
-
-    }
-  }
-
-
-  //  TODO JOAN RXJS!
-  // getEntitiesAsync(game,level) {
-  //   return Observable.create((observer: Observer<string>) => {
-  //     switch(game){
-  //       case 'APPLE IPHONES' : return this.selectElements( AppleIphonesData.mainArray, level )
-  //     }
-  //   });
-  // }
- 
 
 
 }

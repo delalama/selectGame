@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { GamesServerService } from '../../services/games-server.service';
-import { AnswerType , EntityDescription, gameData } from '../../../assets/interfaces';
+import { AnswerType , EntityDescription, gameData, gameInfo } from '../../../assets/interfaces';
 import { Observable , Observer} from 'rxjs';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 import { element } from 'protractor';
@@ -18,7 +18,7 @@ import { StatsController } from '../gameUtils/statsController';
 
 
 export class GenGameComponent implements OnInit {
-@Input() game ;
+@Input() game: gameInfo ;
  
   // game constants
   path = 'assets/pics/'
@@ -55,15 +55,21 @@ export class GenGameComponent implements OnInit {
   }
 
   prepareNewGame(){
-    this.statsController = new StatsController; 
-    this.showBonusMessageBoolean = false;
-    this.points = this.statsController.getPoints(); 
-    this.level = -1 ; 
-    this.progressBarValue = 0 ; 
-    this.gamePicsUrl = this.game.gameUrl;
     this.gameName = this.game.gameName;
-    this.gameIsFinished = false;
-    this.selectGameFlags();
+    this.server.importGame(this.game.gameUrl);
+    setTimeout( () => {
+
+      this.statsController = new StatsController; 
+      this.showBonusMessageBoolean = false;
+      this.points = this.statsController.getPoints(); 
+      this.level = -1 ; 
+      this.progressBarValue = 0 ; 
+      this.gamePicsUrl = this.game.gameUrl;
+      this.gameIsFinished = false;
+      this.selectGameFlags();
+
+    }, 1500 );
+
   }
 
   resetEntitiesArray(){
@@ -73,7 +79,8 @@ export class GenGameComponent implements OnInit {
  
   /* game functions */
   getEntitiesByLevel(level){
-    this.gameData = this.server.getEntities(this.gameName , level);
+    // this.gameData = this.server.getEntities(this.gameName , level);
+    this.gameData = this.server.selectElements(level);
     this.gameEntitiesArr = this.gameData.entities;
     
     // CANDIDATO A CADÁVER

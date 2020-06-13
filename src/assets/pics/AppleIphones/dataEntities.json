@@ -1,0 +1,127 @@
+[
+    {
+        "popular": 100.0,
+        "src": "iPhone_6",
+        "name": "iPhone_6"
+    },
+    {
+        "popular": 58.805,
+        "src": "iPhone_X",
+        "name": "iPhone_X"
+    },
+    {
+        "popular": 55.647,
+        "src": "iPhone_7",
+        "name": "iPhone_7"
+    },
+    {
+        "popular": 50.91,
+        "src": "iPhone_11_Pro",
+        "name": "iPhone_11_Pro"
+    },
+    {
+        "popular": 50.192,
+        "src": "iPhone_8",
+        "name": "iPhone_8"
+    },
+    {
+        "popular": 33.398,
+        "src": "iPhone_XS_Max",
+        "name": "iPhone_XS_Max"
+    },
+    {
+        "popular": 33.398,
+        "src": "iPhone_XS",
+        "name": "iPhone_XS"
+    },
+    {
+        "popular": 33.111,
+        "src": "iPhone_7_Plus",
+        "name": "iPhone_7_Plus"
+    },
+    {
+        "popular": 32.681,
+        "src": "iPhone_8_Plus",
+        "name": "iPhone_8_Plus"
+    },
+    {
+        "popular": 32.394,
+        "src": "iPhone_11_Pro_Max",
+        "name": "iPhone_11_Pro_Max"
+    },
+    {
+        "popular": 31.82,
+        "src": "iPhone_SE_(2020)",
+        "name": "iPhone_SE_(2020)"
+    },
+    {
+        "popular": 29.667,
+        "src": "iPhone_SE",
+        "name": "iPhone_SE"
+    },
+    {
+        "popular": 27.37,
+        "src": "iPhone_XR",
+        "name": "iPhone_XR"
+    },
+    {
+        "popular": 26.939,
+        "src": "iPhone_6s",
+        "name": "iPhone_6s"
+    },
+    {
+        "popular": 26.078,
+        "src": "iPhone_6_Plus",
+        "name": "iPhone_6_Plus"
+    },
+    {
+        "popular": 23.207,
+        "src": "iPhone_5",
+        "name": "iPhone_5"
+    },
+    {
+        "popular": 22.92,
+        "src": "iPhone_6s_Plus",
+        "name": "iPhone_6s_Plus"
+    },
+    {
+        "popular": 14.452,
+        "src": "iPhone_4",
+        "name": "iPhone_4"
+    },
+    {
+        "popular": 12.973,
+        "src": "iPhone_4s",
+        "name": "iPhone_4s"
+    },
+    {
+        "popular": 4.992,
+        "src": "iPhone_5c",
+        "name": "iPhone_5c"
+    },
+    {
+        "popular": 2.366,
+        "src": "iPhone_3G",
+        "name": "iPhone_3G"
+    },
+    {
+        "popular": 2.15,
+        "src": "iPhone_3GS",
+        "name": "iPhone_3GS"
+    },
+    {
+        "popular": 2.15,
+        "src": "iPhone_5s",
+        "name": "iPhone_5s"
+    },
+    {
+        "popular": 0.012,
+        "src": "iPhone_11",
+        "name": "iPhone_11"
+    },
+    {
+        "popular": 0.0,
+        "src": "iPhone_4_CDMA",
+        "name": "iPhone_4_CDMA"
+    }
+]

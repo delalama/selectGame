@@ -1,0 +1,412 @@
+[
+    {"popular": 100.0, "src": "Fire_at_Will", "name": "Fire at Will"
+    },
+    {"popular": 24.926, "src": "Edge_of_Night", "name": "Edge of Night"
+    },
+    {"popular": 21.048, "src": "Frozen_Heart", "name": "Frozen Heart"
+    },
+    {"popular": 16.061, "src": "Cloth_Armor", "name": "Cloth Armor"
+    },
+    {"popular": 15.369, "src": "Perfect_Hex_Core", "name": "Perfect Hex Core"
+    },
+    {"popular": 14.261, "src": "Slightly_Magical_Boots", "name": "Slightly Magical Boots"
+    },
+    {"popular": 13.984, "src": "Long_Sword", "name": "Long Sword"
+    },
+    {"popular": 11.795, "src": "Death's_Dance", "name": "Death's Dance"
+    },
+    {"popular": 10.133, "src": "Perfectly_Timed_Stopwatch", "name": "Perfectly Timed Stopwatch"
+    },
+    {"popular": 10.133, "src": "Tear_of_the_Goddess", "name": "Tear of the Goddess"
+    },
+    {"popular": 9.15, "src": "Wit's_End", "name": "Wit's End"
+    },
+    {"popular": 9.15, "src": "Rylai's_Crystal_Scepter", "name": "Rylai's Crystal Scepter"
+    },
+    {"popular": 8.637, "src": "Boots_of_Speed", "name": "Boots of Speed"
+    },
+    {"popular": 7.723, "src": "Lost_Chapter", "name": "Lost Chapter"
+    },
+    {"popular": 6.171, "src": "Dark_Seal", "name": "Dark Seal"
+    },
+    {"popular": 5.382, "src": "Giant's_Belt", "name": "Giant's Belt"
+    },
+    {"popular": 5.05, "src": "Guardian_Angel", "name": "Guardian Angel"
+    },
+    {"popular": 4.703, "src": "Rainbow_Snax_Party_Pack!", "name": "Rainbow Snax Party Pack!"
+    },
+    {"popular": 4.495, "src": "Salvation", "name": "Salvation"
+    },
+    {"popular": 4.343, "src": "Boots_of_Swiftness", "name": "Boots of Swiftness"
+    },
+    {"popular": 4.149, "src": "Redemption", "name": "Redemption"
+    },
+    {"popular": 4.011, "src": "Dead_Man's_Plate", "name": "Dead Man's Plate"
+    },
+    {"popular": 3.817, "src": "Raise_Morale", "name": "Raise Morale"
+    },
+    {"popular": 3.692, "src": "Sapphire_Crystal", "name": "Sapphire Crystal"
+    },
+    {"popular": 3.498, "src": "Dagger", "name": "Dagger"
+    },
+    {"popular": 3.387, "src": "Hex_Core_mk-2", "name": "Hex Core mk-2"
+    },
+    {"popular": 3.36, "src": "Ruby_Crystal", "name": "Ruby Crystal"
+    },
+    {"popular": 3.304, "src": "Might_of_the_Ruined_King", "name": "Might of the Ruined King"
+    },
+    {"popular": 3.097, "src": "Guardian's_Horn", "name": "Guardian's Horn"
+    },
+    {"popular": 3.027, "src": "Last_Whisper", "name": "Last Whisper"
+    },
+    {"popular": 2.958, "src": "Death's_Daughter", "name": "Death's Daughter"
+    },
+    {"popular": 2.944, "src": "Boots_of_Mobility", "name": "Boots of Mobility"
+    },
+    {"popular": 2.944, "src": "Tear_of_the_Goddess_(Quick_Charge)", "name": "Tear of the Goddess (Quick Charge)"
+    },
+    {"popular": 2.889, "src": "B._F._Sword", "name": "B"
+    },
+    {"popular": 2.889, "src": "Rod_of_Ages", "name": "Rod of Ages"
+    },
+    {"popular": 2.681, "src": "Forbidden_Idol", "name": "Forbidden Idol"
+    },
+    {"popular": 2.681, "src": "Stinger", "name": "Stinger"
+    },
+    {"popular": 2.626, "src": "Sheen", "name": "Sheen"
+    },
+    {"popular": 2.612, "src": "Rod_of_Ages_(Quick_Charge)", "name": "Rod of Ages (Quick Charge)"
+    },
+    {"popular": 2.529, "src": "Oracle_Lens", "name": "Oracle Lens"
+    },
+    {"popular": 2.529, "src": "Twin_Shadows", "name": "Twin Shadows"
+    },
+    {"popular": 2.515, "src": "Health_Potion", "name": "Health Potion"
+    },
+    {"popular": 2.418, "src": "Oracle's_Extract", "name": "Oracle's Extract"
+    },
+    {"popular": 2.362, "src": "Spirit_Visage", "name": "Spirit Visage"
+    },
+    {"popular": 2.252, "src": "Molten_Edge", "name": "Molten Edge"
+    },
+    {"popular": 2.155, "src": "Void_Staff", "name": "Void Staff"
+    },
+    {"popular": 2.127, "src": "Trinity_Force", "name": "Trinity Force"
+    },
+    {"popular": 2.127, "src": "Stalker's_Blade", "name": "Stalker's Blade"
+    },
+    {"popular": 2.016, "src": "Prototype_Hex_Core", "name": "Prototype Hex Core"
+    },
+    {"popular": 1.961, "src": "Frozen_Fist", "name": "Frozen Fist"
+    },
+    {"popular": 1.961, "src": "Black_Spear", "name": "Black Spear"
+    },
+    {"popular": 1.739, "src": "Knight's_Vow", "name": "Knight's Vow"
+    },
+    {"popular": 1.711, "src": "Mortal_Reminder", "name": "Mortal Reminder"
+    },
+    {"popular": 1.601, "src": "Pickaxe", "name": "Pickaxe"
+    },
+    {"popular": 1.573, "src": "Aegis_of_the_Legion", "name": "Aegis of the Legion"
+    },
+    {"popular": 1.476, "src": "Spellbinder", "name": "Spellbinder"
+    },
+    {"popular": 1.462, "src": "Adaptive_Helm", "name": "Adaptive Helm"
+    },
+    {"popular": 1.407, "src": "Hex_Core_mk-1", "name": "Hex Core mk-1"
+    },
+    {"popular": 1.372, "src": "Oblivion_Orb", "name": "Oblivion Orb"
+    },
+    {"popular": 1.342, "src": "Blade_of_the_Ruined_King", "name": "Blade of the Ruined King"
+    },
+    {"popular": 1.299, "src": "Lich_Bane", "name": "Lich Bane"
+    },
+    {"popular": 1.263, "src": "Diet_Poro-Snax", "name": "Diet Poro-Snax"
+    },
+    {"popular": 1.228, "src": "Refillable_Potion", "name": "Refillable Potion"
+    },
+    {"popular": 1.221, "src": "Sorcerer's_Shoes", "name": "Sorcerer's Shoes"
+    },
+    {"popular": 1.092, "src": "Zeal", "name": "Zeal"
+    },
+    {"popular": 1.005, "src": "Caulfield's_Warhammer", "name": "Caulfield's Warhammer"
+    },
+    {"popular": 0.991, "src": "Essence_Reaver", "name": "Essence Reaver"
+    },
+    {"popular": 0.956, "src": "Relic_Shield", "name": "Relic Shield"
+    },
+    {"popular": 0.923, "src": "Bulwark_of_the_Mountain", "name": "Bulwark of the Mountain"
+    },
+    {"popular": 0.919, "src": "Black_Cleaver", "name": "Black Cleaver"
+    },
+    {"popular": 0.887, "src": "Guardian's_Orb", "name": "Guardian's Orb"
+    },
+    {"popular": 0.875, "src": "Cull", "name": "Cull"
+    },
+    {"popular": 0.875, "src": "Abyssal_Mask", "name": "Abyssal Mask"
+    },
+    {"popular": 0.875, "src": "Control_Ward", "name": "Control Ward"
+    },
+    {"popular": 0.875, "src": "Chalice_of_Harmony", "name": "Chalice of Harmony"
+    },
+    {"popular": 0.875, "src": "Vampiric_Scepter", "name": "Vampiric Scepter"
+    },
+    {"popular": 0.875, "src": "Blasting_Wand", "name": "Blasting Wand"
+    },
+    {"popular": 0.875, "src": "Stopwatch", "name": "Stopwatch"
+    },
+    {"popular": 0.875, "src": "Total_Biscuit_of_Rejuvenation", "name": "Total Biscuit of Rejuvenation"
+    },
+    {"popular": 0.875, "src": "Faerie_Charm", "name": "Faerie Charm"
+    },
+    {"popular": 0.875, "src": "Muramana", "name": "Muramana"
+    },
+    {"popular": 0.875, "src": "Ninja_Tabi", "name": "Ninja Tabi"
+    },
+    {"popular": 0.875, "src": "Needlessly_Large_Rod", "name": "Needlessly Large Rod"
+    },
+    {"popular": 0.875, "src": "Hextech_GLP-800", "name": "Hextech GLP-800"
+    },
+    {"popular": 0.875, "src": "Manamune_(Quick_Charge)", "name": "Manamune (Quick Charge)"
+    },
+    {"popular": 0.875, "src": "Infinity_Edge", "name": "Infinity Edge"
+    },
+    {"popular": 0.875, "src": "Phantom_Dancer", "name": "Phantom Dancer"
+    },
+    {"popular": 0.875, "src": "Kircheis_Shard", "name": "Kircheis Shard"
+    },
+    {"popular": 0.875, "src": "Chain_Vest", "name": "Chain Vest"
+    },
+    {"popular": 0.817, "src": "Shard_of_True_Ice", "name": "Shard of True Ice"
+    },
+    {"popular": 0.789, "src": "Righteous_Glory", "name": "Righteous Glory"
+    },
+    {"popular": 0.753, "src": "Warden's_Mail", "name": "Warden's Mail"
+    },
+    {"popular": 0.673, "src": "Mercury's_Treads", "name": "Mercury's Treads"
+    },
+    {"popular": 0.65, "src": "Elixir_of_Iron", "name": "Elixir of Iron"
+    },
+    {"popular": 0.619, "src": "Hunter's_Talisman", "name": "Hunter's Talisman"
+    },
+    {"popular": 0.599, "src": "Frosted_Snax", "name": "Frosted Snax"
+    },
+    {"popular": 0.588, "src": "Serrated_Dirk", "name": "Serrated Dirk"
+    },
+    {"popular": 0.583, "src": "Commencing_Stopwatch", "name": "Commencing Stopwatch"
+    },
+    {"popular": 0.574, "src": "Rejuvenation_Bead", "name": "Rejuvenation Bead"
+    },
+    {"popular": 0.571, "src": "Infernal_Mask", "name": "Infernal Mask"
+    },
+    {"popular": 0.56, "src": "Frozen_Mallet", "name": "Frozen Mallet"
+    },
+    {"popular": 0.542, "src": "Luden's_Pulse", "name": "Luden's Pulse"
+    },
+    {"popular": 0.425, "src": "Corrupting_Potion", "name": "Corrupting Potion"
+    },
+    {"popular": 0.414, "src": "Doran's_Blade", "name": "Doran's Blade"
+    },
+    {"popular": 0.411, "src": "Null-Magic_Mantle", "name": "Null-Magic Mantle"
+    },
+    {"popular": 0.393, "src": "Titanic_Hydra", "name": "Titanic Hydra"
+    },
+    {"popular": 0.39, "src": "Doran's_Ring", "name": "Doran's Ring"
+    },
+    {"popular": 0.39, "src": "Archangel's_Staff_(Quick_Charge)", "name": "Archangel's Staff (Quick Charge)"
+    },
+    {"popular": 0.379, "src": "Amplifying_Tome", "name": "Amplifying Tome"
+    },
+    {"popular": 0.378, "src": "Sunfire_Cape", "name": "Sunfire Cape"
+    },
+    {"popular": 0.375, "src": "Archangels_Staff", "name": "Archangels Staff"
+    },
+    {"popular": 0.339, "src": "Skirmisher's_Sabre", "name": "Skirmisher's Sabre"
+    },
+    {"popular": 0.337, "src": "Poro-Snax", "name": "Poro-Snax"
+    },
+    {"popular": 0.333, "src": "Sanguine_Blade", "name": "Sanguine Blade"
+    },
+    {"popular": 0.33, "src": "Doran's_Shield", "name": "Doran's Shield"
+    },
+    {"popular": 0.326, "src": "Banshee's_Veil", "name": "Banshee's Veil"
+    },
+    {"popular": 0.3, "src": "Tiamat", "name": "Tiamat"
+    },
+    {"popular": 0.292, "src": "Recurve_Bow", "name": "Recurve Bow"
+    },
+    {"popular": 0.282, "src": "Hunter's_Machete", "name": "Hunter's Machete"
+    },
+    {"popular": 0.271, "src": "Seeker's_Armguard", "name": "Seeker's Armguard"
+    },
+    {"popular": 0.267, "src": "Warding_Totem_(Trinket)", "name": "Warding Totem (Trinket)"
+    },
+    {"popular": 0.258, "src": "Glacial_Shroud", "name": "Glacial Shroud"
+    },
+    {"popular": 0.258, "src": "Pauldrons_of_Whiterock", "name": "Pauldrons of Whiterock"
+    },
+    {"popular": 0.245, "src": "Cloak_of_Agility", "name": "Cloak of Agility"
+    },
+    {"popular": 0.243, "src": "Luden's_Echo", "name": "Luden's Echo"
+    },
+    {"popular": 0.243, "src": "Scarecrow_Effigy_(Trinket)", "name": "Scarecrow Effigy (Trinket)"
+    },
+    {"popular": 0.243, "src": "Steel_Shoulderguards", "name": "Steel Shoulderguards"
+    },
+    {"popular": 0.232, "src": "Greater_Vision_Totem_(Trinket)", "name": "Greater Vision Totem (Trinket)"
+    },
+    {"popular": 0.224, "src": "Catalyst_of_Aeons", "name": "Catalyst of Aeons"
+    },
+    {"popular": 0.195, "src": "Berserker's_Greaves", "name": "Berserker's Greaves"
+    },
+    {"popular": 0.195, "src": "Morellonomicon", "name": "Morellonomicon"
+    },
+    {"popular": 0.195, "src": "Zhonya's_Hourglass", "name": "Zhonya's Hourglass"
+    },
+    {"popular": 0.195, "src": "Black_Mist_Scythe", "name": "Black Mist Scythe"
+    },
+    {"popular": 0.193, "src": "Rabadon's_Deathcap", "name": "Rabadon's Deathcap"
+    },
+    {"popular": 0.182, "src": "Seraph's_Embrace", "name": "Seraph's Embrace"
+    },
+    {"popular": 0.181, "src": "Bloodthirster", "name": "Bloodthirster"
+    },
+    {"popular": 0.178, "src": "Phage", "name": "Phage"
+    },
+    {"popular": 0.178, "src": "Gargoyle_Stoneplate", "name": "Gargoyle Stoneplate"
+    },
+    {"popular": 0.178, "src": "Umbral_Glaive", "name": "Umbral Glaive"
+    },
+    {"popular": 0.164, "src": "Elixir_of_Wrath", "name": "Elixir of Wrath"
+    },
+    {"popular": 0.163, "src": "Elixir_of_Sorcery", "name": "Elixir of Sorcery"
+    },
+    {"popular": 0.157, "src": "Lord_Dominik's_Regards", "name": "Lord Dominik's Regards"
+    },
+    {"popular": 0.156, "src": "Locket_of_the_Iron_Solari", "name": "Locket of the Iron Solari"
+    },
+    {"popular": 0.154, "src": "Bramble_Vest", "name": "Bramble Vest"
+    },
+    {"popular": 0.15, "src": "Greater_Stealth_Totem_(Trinket)", "name": "Greater Stealth Totem (Trinket)"
+    },
+    {"popular": 0.139, "src": "Thornmail", "name": "Thornmail"
+    },
+    {"popular": 0.139, "src": "Farsight_Alteration", "name": "Farsight Alteration"
+    },
+    {"popular": 0.135, "src": "Sterak's_Gage", "name": "Sterak's Gage"
+    },
+    {"popular": 0.135, "src": "Liandry's_Torment", "name": "Liandry's Torment"
+    },
+    {"popular": 0.132, "src": "Youmuu's_Ghostblade", "name": "Youmuu's Ghostblade"
+    },
+    {"popular": 0.13, "src": "Hextech_Revolver", "name": "Hextech Revolver"
+    },
+    {"popular": 0.124, "src": "Duskblade_of_Draktharr", "name": "Duskblade of Draktharr"
+    },
+    {"popular": 0.119, "src": "Guinsoo's_Rageblade", "name": "Guinsoo's Rageblade"
+    },
+    {"popular": 0.118, "src": "Quicksilver_Sash", "name": "Quicksilver Sash"
+    },
+    {"popular": 0.116, "src": "Warmog's_Armor", "name": "Warmog's Armor"
+    },
+    {"popular": 0.116, "src": "Guardian's_Hammer", "name": "Guardian's Hammer"
+    },
+    {"popular": 0.116, "src": "Ravenous_Hydra", "name": "Ravenous Hydra"
+    },
+    {"popular": 0.102, "src": "Hextech_Gunblade", "name": "Hextech Gunblade"
+    },
+    {"popular": 0.1, "src": "Haunting_Guise", "name": "Haunting Guise"
+    },
+    {"popular": 0.097, "src": "Runaan's_Hurricane", "name": "Runaan's Hurricane"
+    },
+    {"popular": 0.095, "src": "Statikk_Shiv", "name": "Statikk Shiv"
+    },
+    {"popular": 0.09, "src": "Zeke's_Convergence", "name": "Zeke's Convergence"
+    },
+    {"popular": 0.088, "src": "Rapid_Firecannon", "name": "Rapid Firecannon"
+    },
+    {"popular": 0.088, "src": "Executioner's_Calling", "name": "Executioner's Calling"
+    },
+    {"popular": 0.087, "src": "Iceborn_Gauntlet", "name": "Iceborn Gauntlet"
+    },
+    {"popular": 0.085, "src": "Ardent_Censer", "name": "Ardent Censer"
+    },
+    {"popular": 0.083, "src": "Fiendish_Codex", "name": "Fiendish Codex"
+    },
+    {"popular": 0.083, "src": "Ionian_Boots_of_Lucidity", "name": "Ionian Boots of Lucidity"
+    },
+    {"popular": 0.079, "src": "Stormrazor", "name": "Stormrazor"
+    },
+    {"popular": 0.079, "src": "Maw_of_Malmortius", "name": "Maw of Malmortius"
+    },
+    {"popular": 0.078, "src": "Shurelya's_Reverie", "name": "Shurelya's Reverie"
+    },
+    {"popular": 0.078, "src": "Super_Spicy_Snax", "name": "Super Spicy Snax"
+    },
+    {"popular": 0.077, "src": "Nashor's_Tooth", "name": "Nashor's Tooth"
+    },
+    {"popular": 0.076, "src": "Randuin's_Omen", "name": "Randuin's Omen"
+    },
+    {"popular": 0.071, "src": "Harrowing_Crescent", "name": "Harrowing Crescent"
+    },
+    {"popular": 0.07, "src": "Forgefire_Cape", "name": "Forgefire Cape"
+    },
+    {"popular": 0.069, "src": "Spectral_Sickle", "name": "Spectral Sickle"
+    },
+    {"popular": 0.069, "src": "Trinity_Fusion", "name": "Trinity Fusion"
+    },
+    {"popular": 0.065, "src": "Spectre's_Cowl", "name": "Spectre's Cowl"
+    },
+    {"popular": 0.064, "src": "Manamune", "name": "Manamune"
+    },
+    {"popular": 0.063, "src": "Athene's_Unholy_Grail", "name": "Athene's Unholy Grail"
+    },
+    {"popular": 0.063, "src": "Dawnbringer_Snax", "name": "Dawnbringer Snax"
+    },
+    {"popular": 0.058, "src": "Mercurial_Scimitar", "name": "Mercurial Scimitar"
+    },
+    {"popular": 0.058, "src": "Hextech_Protobelt-01", "name": "Hextech Protobelt-01"
+    },
+    {"popular": 0.057, "src": "Kindlegem", "name": "Kindlegem"
+    },
+    {"popular": 0.057, "src": "Hexdrinker", "name": "Hexdrinker"
+    },
+    {"popular": 0.051, "src": "Negatron_Cloak", "name": "Negatron Cloak"
+    },
+    {"popular": 0.051, "src": "Mejai's_Soulstealer", "name": "Mejai's Soulstealer"
+    },
+    {"popular": 0.051, "src": "Frostfang", "name": "Frostfang"
+    },
+    {"popular": 0.051, "src": "Mikael's_Crucible", "name": "Mikael's Crucible"
+    },
+    {"popular": 0.046, "src": "Spellthief's_Edge", "name": "Spellthief's Edge"
+    },
+    {"popular": 0.045, "src": "Aether_Wisp", "name": "Aether Wisp"
+    },
+    {"popular": 0.045, "src": "Obsidian_Cleaver", "name": "Obsidian Cleaver"
+    },
+    {"popular": 0.036, "src": "Bami's_Cinder", "name": "Bami's Cinder"
+    },
+    {"popular": 0.036, "src": "Crystalline_Bracer", "name": "Crystalline Bracer"
+    },
+    {"popular": 0.035, "src": "Zhonya's_Paradox", "name": "Zhonya's Paradox"
+    },
+    {"popular": 0.034, "src": "Bilgewater_Cutlass", "name": "Bilgewater Cutlass"
+    },
+    {"popular": 0.033, "src": "Jaurim's_Fist", "name": "Jaurim's Fist"
+    },
+    {"popular": 0.027, "src": "Nightbringer_Snax", "name": "Nightbringer Snax"
+    },
+    {"popular": 0.026, "src": "Circlet_of_the_Iron_Solari", "name": "Circlet of the Iron Solari"
+    },
+    {"popular": 0.025, "src": "Espresso_Snax", "name": "Espresso Snax"
+    },
+    {"popular": 0.025, "src": "Runesteel_Spaulders", "name": "Runesteel Spaulders"
+    },
+    {"popular": 0.006, "src": "Targon's_Buckler", "name": "Targon's Buckler"
+    },
+    {"popular": 0.003, "src": "Youmuu's_Wraithblade", "name": "Youmuu's Wraithblade"
+    },
+    {"popular": 0.0, "src": "Rabadon's_Deathcrown", "name": "Rabadon's Deathcrown"
+    }
+]

@@ -26,11 +26,8 @@
           </div>
         </div>
       </div>
-  
-     
 
     </div>
-  
    
 
     <div *ngIf="resetGame" class="endGameRepeatDiv">
@@ -43,6 +40,6 @@
   
   </div>
   
-  <div *ngIf="!resetGame" class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
+  <div *ngIf="!gameIsFinished" class="actualFlagName " expAnimation [eleAnimation]="'only_opacity'">
     <h1 class="textActualFlag">{{gameSelectedEntityName}} </h1>
   </div>

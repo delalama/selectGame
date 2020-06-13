@@ -49,5 +49,10 @@ export enum Status {
 export interface GameBack {
     mainArray: EntityDescription[];
     possibleTrues: number[][];
-    levelsByDensity: LevelInterval[];
 }
+
+// export interface GameBack {
+//     mainArray: EntityDescription[];
+//     possibleTrues: number[][];
+//     levelsByDensity: LevelInterval[];
+// }

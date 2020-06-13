@@ -17,9 +17,6 @@ export class AppComponent {
   eleAnimation = 'swirl_fwd';
 
   
-  
-   
-  
   gamesNamesParent: gameInfo[] = [
     {gameName:"APPLE IPHONES", gameUrl: "AppleIphones/"},
     {gameName:"TOP FOOTBALL PLAYERS LV 1", gameUrl: "TopFootballPlayers1/"},
@@ -31,9 +28,6 @@ export class AppComponent {
     {gameName: 'LOL ITEMS' , gameUrl: 'LolItems/'},
     {gameName: 'TOP ACTORS' , gameUrl: 'TOPACTORS/'},
     {gameName: 'POKEMONS' , gameUrl: 'POKEMONS/'},
-     
-
-
   ];
 
   tableGameSelected(game: gameInfo ) {

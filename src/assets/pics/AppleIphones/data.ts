@@ -6,7 +6,7 @@ const possibleTrues = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10], [11], [12],
 
 const levelsByDensity =[{'bottom': 0, 'top': 0}, {'bottom': 1, 'top': 2}, {'bottom': 3, 'top': 4}, {'bottom': 5, 'top': 10}, {'bottom': 11, 'top': 14}, {'bottom': 15, 'top': 16}, {'bottom': 17, 'top': 18}, {'bottom': 19, 'top': 23}, {'bottom': 24, 'top': 24}];
 
-export const AppleIphonesData : GameBack = { 
-    mainArray: AppleIphones,
-    possibleTrues: possibleTrues,
-    levelsByDensity: levelsByDensity};
+// export const AppleIphonesData : GameBack = { 
+//     mainArray: AppleIphones,
+//     possibleTrues: possibleTrues,
+//     levelsByDensity: levelsByDensity};
