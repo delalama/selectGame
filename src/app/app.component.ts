@@ -28,6 +28,7 @@ export class AppComponent {
     {gameName: 'LOL ITEMS' , gameUrl: 'LolItems/'},
     {gameName: 'TOP ACTORS' , gameUrl: 'TOPACTORS/'},
     {gameName: 'POKEMONS' , gameUrl: 'POKEMONS/'},
+    {gameName: 'COUNTRIES FLAGS' , gameUrl: 'CountryFlags/'},
   ];
 
   tableGameSelected(game: gameInfo ) {

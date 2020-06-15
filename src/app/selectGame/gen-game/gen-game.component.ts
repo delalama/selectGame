@@ -79,7 +79,6 @@ export class GenGameComponent implements OnInit {
  
   /* game functions */
   getEntitiesByLevel(level){
-    // this.gameData = this.server.getEntities(this.gameName , level);
     this.gameData = this.server.selectElements(level);
     this.gameEntitiesArr = this.gameData.entities;
     
@@ -93,7 +92,6 @@ export class GenGameComponent implements OnInit {
     })
   }
 
-  //TODO borrar esta función
   resetStats(){
     console.log('esto ha de quedar vacío')
   }
@@ -139,7 +137,6 @@ export class GenGameComponent implements OnInit {
   // isAnswerCorrect naming!
   changeStats(isAnswerCorrect, answerTime){
     if(isAnswerCorrect){
-      //TODO MAKE ANIMATION
       this.answerMessage = this.statsController.getAnswer(AnswerType.CORRECT) 
       this.selectGameFlags();
     }else{
@@ -156,7 +153,6 @@ export class GenGameComponent implements OnInit {
     this.points = this.statsController.stats.points;
   }
 
-  // WTF IS THIS SHIT MADAFACA
   toogleFlagWrong(){
      this.flagWrong = true;
      setTimeout( () => {
